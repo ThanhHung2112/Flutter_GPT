@@ -4,40 +4,23 @@ import 'package:gpt_flutter/screens/imgpage.dart';
 import 'package:gpt_flutter/models/firebase_file.dart';
 import 'package:gpt_flutter/services/filefrom_firebase.dart';
 
-
-class Downloadfile extends StatelessWidget {
-  static final String title = 'Firebase Download';
-
+class DownloadFile extends StatefulWidget {
   @override
-  Widget build(BuildContext context) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: title,
-        theme: ThemeData(primarySwatch: Colors.blue),
-        home: DownFile(),
-      );
+  _DownloadFileState createState() => _DownloadFileState();
 }
 
-class DownFile extends StatefulWidget {
-  @override
-  _DownFileState createState() => _DownFileState();
-}
-
-class _DownFileState extends State<DownFile> {
+class _DownloadFileState extends State<DownloadFile> {
   late Future<List<FirebaseFile>> futureFiles;
 
   @override
   void initState() {
     super.initState();
 
-    futureFiles = FirebaseApi.listAll('files/');
+    futureFiles = FirebaseApi.listAll('s-files/');
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: Text(Downloadfile.title),
-          centerTitle: true,
-        ),
         body: FutureBuilder<List<FirebaseFile>>(
           future: futureFiles,
           builder: (context, snapshot) {

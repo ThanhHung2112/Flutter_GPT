@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import '../services/is_validation.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gpt_flutter/screens/chat_screen.dart';
+import 'package:gpt_flutter/screens/download_file.dart';
 import 'package:gpt_flutter/screens/summarize_page.dart';
 import 'package:gpt_flutter/providers/active_theme_provider.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -167,24 +169,25 @@ class _HomePageState extends State<HomePage> {
     String _openaikey = _textEditingController.text;
     bool isValidKey = await isKeyValid(_openaikey);
 
-    if (_openaikey.isEmpty) {
-      setState(() {
-        _chatbotResponse = "Please give the openai keys.";
-      });
-    } else if (!isValidKey) {
-      setState(() {
-        _chatbotResponse = "Key not work";
-      });
-    } else {
-      setState(() {
-        _chatbotResponse = "";
-      });
+    // if (_openaikey.isEmpty) {
+    //   setState(() {
+    //     _chatbotResponse = "Please give the openai keys.";
+    //   });
+    // } else if (!isValidKey) {
+    //   setState(() {
+    //     _chatbotResponse = "Key not work";
+    //   });
+    // } else {
+    //   setState(() {
+    //     _chatbotResponse = "";
+    //   });
       _openAIProvider.updateOpenAIKeys(_openaikey);
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const ChatScreen()),
+        MaterialPageRoute(builder: (context) => DownloadFile()),
+        //const ChatScreen()),
       );
-    }
+    // }
   }
 
   void _onSummarizePressed() {

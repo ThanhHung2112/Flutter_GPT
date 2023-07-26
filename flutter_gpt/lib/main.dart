@@ -8,7 +8,6 @@ import 'package:gpt_flutter/screens/home_page.dart';
 import 'package:gpt_flutter/screens/download_file.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
 void main() async {
  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -29,8 +28,7 @@ class App extends ConsumerWidget {
           debugShowCheckedModeBanner: false,
           themeMode:
               activeTheme == Themes.dark ? ThemeMode.dark : ThemeMode.light,
-          home: Downloadfile());
-          // HomePage());
+          home: HomePage());
     // FutureBuilder(builder: ((context, snapshot) {
     //   if (snapshot.hasError) {
     //     print("snapshot error: " ); //+ snapshot.toString()
