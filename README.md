@@ -4,7 +4,7 @@ This is a mobile application built with Flutter, integrating OpenAI's API. The a
 
 This repository contains a Flutter mobile app that utilizes the OpenAI API to power a chatbot functionality. The app interface is designed with multiple screens, including the Home Page, OpenAI key input, Chatbot Screen, and Summarize Screens.
 
-Please note that the images displayed above are part of the app's interface and showcase the various functionalities available in the Flutter_GPT app.
+Please note that the images displayed below are part of the app's interface and showcase the various functionalities available in the Flutter_GPT app.
 
 Feel free to explore the code and use it as a reference for your own projects!
 
