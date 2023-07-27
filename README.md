@@ -10,12 +10,13 @@ Feel free to explore the code and use it as a reference for your own projects!
 
 ## Time Tracking
 
-| Date                    | Task                | Notes                             |
-|------------------------ |-------------------  |-----------------------------------|
-| 17/07/2023-19/07/2023 | Chatbot UI          | Theme, send & respond message functionality.    |
-| 21/07/2023-23/07/2023 | AIHandler           | Integrated chat_gpt_sdk for AI capabilities.             |
-| 24/07/2023              | HomePage UI         | Implemented isKeyValid check and set up Navigator.        |
-| 25/07/2023-26/07/2023 | Firebase Connection | Set up Firebase_CIL and implemented file upload to Firebase. |
+| Date              | Task                | Notes                                               |
+|-------------------|---------------------|-----------------------------------------------------|
+| 17.07.23-19.07.23 | Chatbot UI          | Theme, send & respond message functionality.      |
+| 21.07.23-23.07.23 | AIHandler           | Integrated chat_gpt_sdk for AI capabilities.       |
+| 24.07.23           | HomePage UI         | Implemented isKeyValid check and set up Navigator. |
+| 25.07.23-26.07.23 | Firebase Connection | Set up Firebase_CIL and implemented file upload to Firebase. |
+
 
 ## USER INTERFACE
 
