@@ -11,8 +11,8 @@ This is a mobile application built with Flutter, integrating OpenAI's API. The a
 </p>
 
 ### Give the OpenAI Keys
+<p>You have to provide the correct OpenAI API keys to get started.</p>
 <p align="center">
-  You have to provide the correct OpenAI API keys to get started
   <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690426068.png" width="400" alt="OpenAI Keys">
   <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421550.png" width="400" alt="OpenAI Keys">
 </p>
