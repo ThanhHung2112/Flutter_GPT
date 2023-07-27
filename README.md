@@ -17,7 +17,7 @@ This is a mobile app developed using Flutter and integrated with the OpenAI API.
 
 ### Chatbot Screen
 <p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421621.png" width="400" alt="Chatbot Screen 1">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421902.png" width="400" alt="Chatbot Screen 1">
   <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690422007.png" width="400" alt="Chatbot Screen 2">
 </p>
 
