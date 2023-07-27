@@ -8,6 +8,7 @@ import 'package:gpt_flutter/widgets/my_app_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gpt_flutter/services/firebase_file.dart';
 import 'package:gpt_flutter/widgets/text_and_voice_field.dart';
+import 'package:gpt_flutter/services/upload_file_firebase.dart';
 import 'package:flutter_document_picker/flutter_document_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
@@ -26,12 +27,15 @@ class _SummarizeDocState extends State<SummarizeDoc> {
         title: "Flutter - Summarize Document",
       ),
       body: Center(
-        child: _fileUploaded ? Column() : _uploadToCon(context),
+        child: _fileUploaded ? Column(
+          
+        ) : _uploadToCon(context),
       ),
     );
   }
 
-  void _pickAndUploadFile() async {
+// nonvoi
+ void _pickAndUploadFile() async {
     setState(() {
       _fileUploaded = true;
     });
@@ -39,7 +43,7 @@ class _SummarizeDocState extends State<SummarizeDoc> {
       type: FileType.custom,
       allowedExtensions: ['pdf', 'doc', 'docx'],
     );
-    
+
     if (result != null) {
       setState(() {
         _uploadedFile = File(result.files.single.path!);
@@ -51,7 +55,6 @@ class _SummarizeDocState extends State<SummarizeDoc> {
       });
     }
   }
-
   void _uploadFileToFirebaseStorage() async {
     if (_uploadedFile != null) {
       String fileName = DateTime.now().millisecondsSinceEpoch.toString() +
@@ -73,9 +76,9 @@ class _SummarizeDocState extends State<SummarizeDoc> {
       }
     }
   }
+
   ElevatedButton _downloadfile(BuildContext context) {
     return ElevatedButton(child: Text("download"), onPressed: () {});
-      
   }
 
   ElevatedButton _uploadToCon(BuildContext context) {
@@ -122,54 +125,31 @@ class _SummarizeDocState extends State<SummarizeDoc> {
         ),
         backgroundColor: MaterialStateProperty.resolveWith<Color>(
           (Set<MaterialState> states) {
-
             if (states.contains(MaterialState.pressed)) {
               return Colors.blue;
             }
-            return Theme.of(context)
-                .colorScheme
-                .secondary; 
+            return Theme.of(context).colorScheme.secondary;
           },
         ),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
-    
           ),
         ),
       ),
     );
   }
-  
-  Future<firebase_storage.UploadTask?> uploadFile(File file) async {
-    if (file == null) {
-      print("No file was picked");
-      return null;
-    }
 
-    firebase_storage.UploadTask uploadTask;
-
-    // Create a Reference to the file
-    firebase_storage.Reference ref = firebase_storage.FirebaseStorage.instance
-        .ref()
-        .child('files')
-        .child('/some-file.pdf');
-
-    final metadata = firebase_storage.SettableMetadata(
-        contentType: 'file/pdf',
-        customMetadata: {'picked-file-path': file.path});
-    print("Uploading..!");
-
-    uploadTask = ref.putData(await file.readAsBytes(), metadata);
-
-    print("done..!");
-    return Future.value(uploadTask);
-  }
   Future<void> _selectFile(BuildContext context) async {
     final path = await FlutterDocumentPicker.openDocument();
     print(path);
     File file = File(path!);
     firebase_storage.UploadTask? task = await uploadFile(file);
-    Navigator.pop(context);
+    if (task != null) {
+      setState(() {
+        _fileUploaded = true;
+      });
+
+    }
   }
 }

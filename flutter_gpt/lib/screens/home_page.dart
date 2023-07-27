@@ -1,7 +1,6 @@
 import '../services/ai_handler.dart';
 import 'package:flutter/material.dart';
 import '../services/is_validation.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gpt_flutter/screens/chat_screen.dart';
 import 'package:gpt_flutter/screens/download_file.dart';
 import 'package:gpt_flutter/screens/summarize_page.dart';
@@ -117,7 +116,6 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                         
                           Image.asset(
                             'assets/images/licensing.png',
                             height: 28,
@@ -166,7 +164,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _onChatbotPressed(BuildContext context) async {
+    // String _openaikey = "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";//_textEditingController.text;
     String _openaikey = _textEditingController.text;
+
     bool isValidKey = await isKeyValid(_openaikey);
 
     if (_openaikey.isEmpty) {
@@ -184,20 +184,29 @@ class _HomePageState extends State<HomePage> {
       _openAIProvider.updateOpenAIKeys(_openaikey);
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => 
-        // DownloadFile()),
-        const ChatScreen()),
+        MaterialPageRoute(builder: (context) => const ChatScreen()),
       );
     }
   }
-
-  void _onSummarizePressed() {
+  
+  Future<void> _onSummarizePressed() async {
     String _openaikey = _textEditingController.text;
+
+    //String _openaikey = "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";//_textEditingController.text;
+    bool isValidKey = await isKeyValid(_openaikey);
+
     if (_openaikey.isEmpty) {
       setState(() {
         _chatbotResponse = "Please give the openai keys.";
       });
+    } else if (!isValidKey) {
+      setState(() {
+        _chatbotResponse = _openaikey;
+      });
     } else {
+      setState(() {
+        _chatbotResponse = "";
+      });
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => SummarizeDoc()),
