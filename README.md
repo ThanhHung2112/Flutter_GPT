@@ -6,7 +6,7 @@ This is a mobile app developed using Flutter and integrated with the OpenAI API.
 
 ### Home Page
 <p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/1069fd1b-0bf3-4c70-8441-67d2f625f3aa" width="400" alt="Home Page 1">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421223.png" width="400" alt="Home Page 1">
   <img src="https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/149a1ee0-ea65-41d0-b3f9-0ac19d7ddd06" width="400" alt="Home Page 2">
 </p>
 
