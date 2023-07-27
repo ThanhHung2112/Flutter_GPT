@@ -12,6 +12,7 @@ This is a mobile app developed using Flutter and integrated with the OpenAI API.
 
 ### Give the OpenAI Keys
 <p align="center">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690426068.png" width="400" alt="OpenAI Keys">
   <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421550.png" width="400" alt="OpenAI Keys">
 </p>
 
