@@ -3,7 +3,9 @@ import '../models/chat_model.dart';
 import '../services/ai_handler.dart';
 import 'package:flutter/material.dart';
 import '../services/voice_handler.dart';
+import 'package:provider/provider.dart';
 import '../providers/chats_provider.dart';
+import 'package:gpt_flutter/screens/home_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum InputMode {
@@ -14,14 +16,16 @@ enum InputMode {
 class TextAndVoiceField extends ConsumerStatefulWidget {
   const TextAndVoiceField({super.key});
 
+  
   @override
   ConsumerState<TextAndVoiceField> createState() => _TextAndVoiceFieldState();
 }
 
 class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
+
   InputMode _inputMode = InputMode.voice;
   final _messageController = TextEditingController();
-  final AIHandler _openAI = AIHandler();
+  final AIHandler _openAI = AIHandler("OpenAIProvider._openaikeys");
   final VoiceHandler voiceHandler = VoiceHandler();
   var _isReplying = false;
   var _isListening = false;
@@ -83,6 +87,7 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
         )
       ],
     );
+    
   }
 
   void setInputMode(InputMode inputMode) {

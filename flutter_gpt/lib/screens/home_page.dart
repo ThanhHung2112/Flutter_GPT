@@ -1,11 +1,11 @@
 import '../services/ai_handler.dart';
 import 'package:flutter/material.dart';
 import '../services/is_validation.dart';
+import 'package:provider/provider.dart';
 import 'package:gpt_flutter/screens/chat_screen.dart';
 import 'package:gpt_flutter/screens/download_file.dart';
 import 'package:gpt_flutter/screens/summarize_page.dart';
 import 'package:gpt_flutter/providers/active_theme_provider.dart';
-
 
 class HomePage extends StatefulWidget {
   @override
@@ -14,11 +14,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final TextEditingController _textEditingController = TextEditingController();
-  final AIHandler _openAI = AIHandler();
   final OpenAIProvider _openAIProvider = OpenAIProvider();
 
   bool _isObscured = true;
   String _chatbotResponse = '';
+
+  String _openaikey = '';
 
   @override
   void dispose() {
@@ -28,6 +29,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     final String imageAssetPath = ThemeMode == Themes.dark
         ? 'assets/images/bot.png'
         : 'assets/images/bot.png';
@@ -50,6 +52,12 @@ class _HomePageState extends State<HomePage> {
               child: TextField(
                 controller: _textEditingController,
                 obscureText: _isObscured,
+                onChanged: (value) {
+                  setState(() {
+                    _openaikey = value; // Update _openaikey when the text changes
+                    GlobalSettings globalSettings = GlobalSettings(_openaikey);
+                  });
+                },
                 decoration: InputDecoration(
                   hintText: 'Enter your openaikeys...',
                   border: OutlineInputBorder(
@@ -165,7 +173,7 @@ class _HomePageState extends State<HomePage> {
 
   void _onChatbotPressed(BuildContext context) async {
     // String _openaikey = "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";//_textEditingController.text;
-    String _openaikey = _textEditingController.text;
+    _openaikey = _textEditingController.text;
 
     bool isValidKey = await isKeyValid(_openaikey);
 
@@ -190,7 +198,7 @@ class _HomePageState extends State<HomePage> {
   }
   
   Future<void> _onSummarizePressed() async {
-    String _openaikey = _textEditingController.text;
+    _openaikey = _textEditingController.text;
 
     //String _openaikey = "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";//_textEditingController.text;
     bool isValidKey = await isKeyValid(_openaikey);
@@ -230,4 +238,9 @@ class OpenAIProvider extends ChangeNotifier {
     _openaikeys = keys;
     notifyListeners();
   }
+}
+class GlobalSettings {
+  String openaiKey;
+
+  GlobalSettings(this.openaiKey);
 }

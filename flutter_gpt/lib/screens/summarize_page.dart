@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:gpt_flutter/widgets/my_app_bar.dart';
+import 'package:gpt_flutter/screens/chat_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gpt_flutter/services/firebase_file.dart';
 import 'package:gpt_flutter/widgets/text_and_voice_field.dart';
@@ -27,9 +28,7 @@ class _SummarizeDocState extends State<SummarizeDoc> {
         title: "Flutter - Summarize Document",
       ),
       body: Center(
-        child: _fileUploaded ? Column(
-          
-        ) : _uploadToCon(context),
+        child: _fileUploaded ? ChatScreen() : _uploadToCon(context),
       ),
     );
   }
