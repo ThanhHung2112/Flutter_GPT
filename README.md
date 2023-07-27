@@ -10,14 +10,48 @@ Feel free to explore the code and use it as a reference for your own projects!
 
 ## Time Tracking
 
-| Date         | Task                | Notes                                               |
-|--------------|---------------------|-----------------------------------------------------|
-| 12.07.23     | Project setup       |                                                     |
-| 13.07.23-14.07.23 | Chatbot UI     | Theme, chatbot interface                             |
-| 17.07.23-19.07.23 | Send & Respond  | Send & respond message functionality               |
-| 21.07.23-23.07.23 | AIHandler        | Integrated chat_gpt_sdk for AI capabilities         |
-| 24.07.23     | HomePage UI        | Implemented isKeyValid check and set up Navigator   |
-| 25.07.23-26.07.23 | Firebase Connection | Set up Firebase_CIL and implemented file upload to Firebase |
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Task</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>12.07.23</td>
+      <td>Project Setup</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>13.07.23-14.07.23</td>
+      <td>Chatbot UI</td>
+      <td>Theme, chatbot interface</td>
+    </tr>
+    <tr>
+      <td>17.07.23-19.07.23</td>
+      <td>Send & Respond</td>
+      <td>Send & respond message functionality</td>
+    </tr>
+    <tr>
+      <td>21.07.23-23.07.23</td>
+      <td>AIHandler</td>
+      <td>Integrated chat_gpt_sdk for AI capabilities</td>
+    </tr>
+    <tr>
+      <td>24.07.23</td>
+      <td>HomePage UI</td>
+      <td>Implemented isKeyValid check and set up Navigator</td>
+    </tr>
+    <tr>
+      <td>25.07.23-26.07.23</td>
+      <td>Firebase Connection</td>
+      <td>Set up Firebase_CIL and implemented file upload to Firebase</td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 
