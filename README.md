@@ -12,7 +12,7 @@ Feel free to explore the code and use it as a reference for your own projects!
 
 | Date         | Task                | Notes                                               |
 |--------------|---------------------|-----------------------------------------------------|
-| 12.07.23     | project setup       |                                                     |
+| 12.07.23     | Project setup       |                                                     |
 | 13.07.23-14.07.23 | Chatbot UI     | Theme, chatbot interface                             |
 | 17.07.23-19.07.23 | Send & Respond  | Send & respond message functionality               |
 | 21.07.23-23.07.23 | AIHandler        | Integrated chat_gpt_sdk for AI capabilities         |
