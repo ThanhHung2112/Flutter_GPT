@@ -1,8 +1,8 @@
 # Flutter_GPT
 
-This is a mobile app developed using Flutter and integrated with the OpenAI API.
+This is a mobile application built with Flutter, integrating OpenAI's API. The app was developed during my internship at BRYCEN company, featuring two main functionalities: a chatbot and a document summarization tool.
 
-## Screenshots
+## USER INTERFACE
 
 ### Home Page
 <p align="center">
@@ -12,6 +12,7 @@ This is a mobile app developed using Flutter and integrated with the OpenAI API.
 
 ### Give the OpenAI Keys
 <p align="center">
+  You have to provide the correct OpenAI API keys to get started
   <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690426068.png" width="400" alt="OpenAI Keys">
   <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421550.png" width="400" alt="OpenAI Keys">
 </p>
