@@ -2,7 +2,7 @@
 Mobile App using Flutter and Openai key
 
 ## Home_page
-![Screenshot_1690421223](https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/1069fd1b-0bf3-4c70-8441-67d2f625f3aa)![Screenshot_1690421239](https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/149a1ee0-ea65-41d0-b3f9-0ac19d7ddd06)
+![Screenshot_1690421223](https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/1069fd1b-0bf3-4c70-8441-67d2f625f3aa) ![Screenshot_1690421239](https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/149a1ee0-ea65-41d0-b3f9-0ac19d7ddd06)
 
 ## Give the openaikeys
 ![Screenshot_1690421550](https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/201c7622-eacf-48b7-aa63-3c94d0bf8c31)
