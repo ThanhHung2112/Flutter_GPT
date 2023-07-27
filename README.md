@@ -2,6 +2,12 @@
 
 This is a mobile application built with Flutter, integrating OpenAI's API. The app was developed during my internship at BRYCEN company, featuring two main functionalities: a chatbot and a document summarization tool.
 
+This repository contains a Flutter mobile app that utilizes the OpenAI API to power a chatbot functionality. The app interface is designed with multiple screens, including the Home Page, OpenAI key input, Chatbot Screen, and Summarize Screens.
+
+Please note that the images displayed above are part of the app's interface and showcase the various functionalities available in the Flutter_GPT app.
+
+Feel free to explore the code and use it as a reference for your own projects!
+
 ## USER INTERFACE
 
 ### Home Page
@@ -29,8 +35,15 @@ This is a mobile application built with Flutter, integrating OpenAI's API. The a
   <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690422201.png" width="400" alt="Summarize Screen 2">
 </p>
 
-This repository contains a Flutter mobile app that utilizes the OpenAI API to power a chatbot functionality. The app interface is designed with multiple screens, including the Home Page, OpenAI key input, Chatbot Screen, and Summarize Screens.
+## Acknowledgements
 
-Please note that the images displayed above are part of the app's interface and showcase the various functionalities available in the Flutter_GPT app.
+This app was built using the following open-source libraries and tools:
 
-Feel free to explore the code and use it as a reference for your own projects!
+* [Flutter](https://flutter.dev/)
+* [Dart](https://dart.dev/)
+* [OpenAI GPT](https://beta.openai.com/)
+* [Firebase](https://firebase.google.com/docs/flutter/setup)
+
+
+
+
