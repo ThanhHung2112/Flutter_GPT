@@ -169,25 +169,26 @@ class _HomePageState extends State<HomePage> {
     String _openaikey = _textEditingController.text;
     bool isValidKey = await isKeyValid(_openaikey);
 
-    // if (_openaikey.isEmpty) {
-    //   setState(() {
-    //     _chatbotResponse = "Please give the openai keys.";
-    //   });
-    // } else if (!isValidKey) {
-    //   setState(() {
-    //     _chatbotResponse = "Key not work";
-    //   });
-    // } else {
-    //   setState(() {
-    //     _chatbotResponse = "";
-    //   });
+    if (_openaikey.isEmpty) {
+      setState(() {
+        _chatbotResponse = "Please give the openai keys.";
+      });
+    } else if (!isValidKey) {
+      setState(() {
+        _chatbotResponse = "Key not work";
+      });
+    } else {
+      setState(() {
+        _chatbotResponse = "";
+      });
       _openAIProvider.updateOpenAIKeys(_openaikey);
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => DownloadFile()),
-        //const ChatScreen()),
+        MaterialPageRoute(builder: (context) => 
+        // DownloadFile()),
+        const ChatScreen()),
       );
-    // }
+    }
   }
 
   void _onSummarizePressed() {

@@ -9,7 +9,7 @@ import 'package:gpt_flutter/screens/download_file.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() async {
- WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -23,12 +23,12 @@ class App extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final activeTheme = ref.watch(activeThemeProvider);
     return MaterialApp(
-          theme: lightTheme,
-          darkTheme: darkTheme,
-          debugShowCheckedModeBanner: false,
-          themeMode:
-              activeTheme == Themes.dark ? ThemeMode.dark : ThemeMode.light,
-          home: HomePage());
+        theme: lightTheme,
+        darkTheme: darkTheme,
+        debugShowCheckedModeBanner: false,
+        themeMode:
+            activeTheme == Themes.dark ? ThemeMode.dark : ThemeMode.light,
+        home: HomePage());
     // FutureBuilder(builder: ((context, snapshot) {
     //   if (snapshot.hasError) {
     //     print("snapshot error: " ); //+ snapshot.toString()
@@ -41,7 +41,7 @@ class App extends ConsumerWidget {
     //       themeMode:
     //           activeTheme == Themes.dark ? ThemeMode.dark : ThemeMode.light,
     //       home: HomePage(),
-          
+
     //     );
     //   }
     //   return Center(child: CircularProgressIndicator());
