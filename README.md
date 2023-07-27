@@ -46,6 +46,18 @@ Feel free to explore the code and use it as a reference for your own projects!
   <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690422201.png" width="400" alt="Summarize Screen 2">
 </p>
 
+## Installation
+
+You can download the APK file from the releases section of this repository or build the app from source using the
+instructions below:
+
+```bash
+git clone https://github.com/ThanhHung2112/Flutter_GPT.git
+cd Flutter_GPT/flutter_gpt
+flutter pub get
+flutter run
+````
+
 ## Acknowledgements
 
 This app was built using the following open-source libraries and tools:
