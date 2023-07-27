@@ -8,6 +8,15 @@ Please note that the images displayed above are part of the app's interface and 
 
 Feel free to explore the code and use it as a reference for your own projects!
 
+## Time Tracking
+
+| Date                    | Task                | Notes                             |
+|------------------------ |-------------------  |-----------------------------------|
+| 17/07/2023 - 19/07/2023 | Chatbot UI          | Theme, send & respond message functionality.    |
+| 21/07/2023 - 23/07/2023 | AIHandler           | Integrated chat_gpt_sdk for AI capabilities.             |
+| 24/07/2023              | HomePage UI         | Implemented isKeyValid check and set up Navigator.        |
+| 25/07/2023 - 26/07/2023 | Firebase Connection | Set up Firebase_CIL and implemented file upload to Firebase. |
+
 ## USER INTERFACE
 
 ### Home Page
@@ -43,7 +52,6 @@ This app was built using the following open-source libraries and tools:
 * [Dart](https://dart.dev/)
 * [OpenAI GPT](https://beta.openai.com/)
 * [Firebase](https://firebase.google.com/docs/flutter/setup)
-
 
 
 
