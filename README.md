@@ -23,27 +23,27 @@ Feel free to explore the code and use it as a reference for your own projects!
 
 ### Home Page
 <p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421223.png" width="400" alt="Home Page 1">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421239.png" width="400" alt="Home Page 2">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421223.png" width="350" alt="Home Page 1">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421239.png" width="350" alt="Home Page 2">
 </p>
 
 ### Give the OpenAI Keys
 <p>You have to provide the correct OpenAI API keys to get started.</p>
 <p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690426068.png" width="400" alt="OpenAI Keys">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421550.png" width="400" alt="OpenAI Keys">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690426068.png" width="350" alt="OpenAI Keys">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421550.png" width="350" alt="OpenAI Keys">
 </p>
 
 ### Chatbot Screen
 <p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421902.png" width="400" alt="Chatbot Screen 1">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690422007.png" width="400" alt="Chatbot Screen 2">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421902.png" width="350" alt="Chatbot Screen 1">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690422007.png" width="350" alt="Chatbot Screen 2">
 </p>
 
 ### Summarize Screens
 <p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421964.png" width="400" alt="Summarize Screen 1">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690422201.png" width="400" alt="Summarize Screen 2">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421964.png" width="350" alt="Summarize Screen 1">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690422201.png" width="350" alt="Summarize Screen 2">
 </p>
 
 ## Installation
