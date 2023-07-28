@@ -57,6 +57,21 @@ cd Flutter_GPT/flutter_gpt
 flutter pub get
 flutter run
 ````
+It may take a while for the first build of this app.
+
+## Interesting discovery
+
+If you set the API key within the code like this, you can continue to use it even if the key has expired.
+```bash
+OpenAI.instance.build(
+      token: "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",
+      baseOption: HttpSetup(
+        receiveTimeout: const Duration(seconds: 100),
+        connectTimeout: const Duration(seconds: 100),
+      ),
+    )
+````
+This trick is quite handy while building code, as it allows you to save time and resources.
 
 ## Acknowledgements
 
