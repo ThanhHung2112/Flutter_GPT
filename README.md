@@ -18,7 +18,7 @@ Feel free to explore the code and use it as a reference for your own projects!
 | 21.07.23-23.07.23 | AIHandler        | Integrated chat_gpt_sdk for AI capabilities         |
 | 24.07.23     | HomePage UI        | Implemented isKeyValid check and set up Navigator   |
 | 25.07.23-26.07.23 | Firebase Connection | Set up Firebase_CIL and implemented file upload to Firebase |
-
+| 28.07.23 | Sidebar SM chatbot| Test the summarize feature, test the memory function of the chatbot, Sidebar UI, update the getApiKey method.|
 ## USER INTERFACE
 
 ### Home Page
