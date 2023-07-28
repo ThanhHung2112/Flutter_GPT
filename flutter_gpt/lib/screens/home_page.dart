@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../services/is_validation.dart';
 import 'package:provider/provider.dart';
 import 'package:gpt_flutter/screens/chat_screen.dart';
-import 'package:gpt_flutter/screens/download_file.dart';
 import 'package:gpt_flutter/screens/summarize_page.dart';
 import 'package:gpt_flutter/providers/active_theme_provider.dart';
 
@@ -30,13 +29,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
-    final String imageAssetPath = ThemeMode == Themes.dark
+    const String imageAssetPath = ThemeMode == Themes.dark
         ? 'assets/images/bot.png'
         : 'assets/images/bot.png';
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
-          // Added SingleChildScrollView to handle overflow.
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text('Chatbot & Summarize',
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.w800)),
@@ -46,7 +44,7 @@ class _HomePageState extends State<HomePage> {
               height: 200,
               width: 200,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: TextField(

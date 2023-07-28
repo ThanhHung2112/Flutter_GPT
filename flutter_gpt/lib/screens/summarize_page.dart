@@ -1,14 +1,11 @@
 import 'dart:io';
 import 'dart:ui';
-import 'dart:math';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:gpt_flutter/widgets/my_app_bar.dart';
 import 'package:gpt_flutter/screens/chat_screen.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gpt_flutter/services/firebase_file.dart';
-import 'package:gpt_flutter/widgets/text_and_voice_field.dart';
+import 'package:gpt_flutter/screens/summarize__screen.dart';
 import 'package:gpt_flutter/services/upload_file_firebase.dart';
 import 'package:flutter_document_picker/flutter_document_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
@@ -24,17 +21,57 @@ class _SummarizeDocState extends State<SummarizeDoc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        title: "Flutter - Summarize Document",
+      appBar:
+          MyAppBar(title: "Flutter - Summarize Document", isSidebarOpen: false),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset('assets/images/bot.png', height: 100),
+                  Text(
+                    'FlutterChatbot',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Homepage'),
+              onTap: () {
+                // TODO: Xử lý khi người dùng nhấn vào trang chủ
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.arrow_back),
+              title: Text('Return'),
+              onTap: () {
+                // TODO: Xử lý khi người dùng nhấn vào nút quay lại
+              },
+            ),
+            // Thêm các mục khác của sidebar tùy ý
+          ],
+        ),
       ),
       body: Center(
-        child: _fileUploaded ? ChatScreen() : _uploadToCon(context),
+        child: _fileUploaded ? SummarizeScreen() : _uploadToCon(context),
       ),
     );
   }
 
 // nonvoi
- void _pickAndUploadFile() async {
+  void _pickAndUploadFile() async {
     setState(() {
       _fileUploaded = true;
     });
@@ -54,6 +91,7 @@ class _SummarizeDocState extends State<SummarizeDoc> {
       });
     }
   }
+
   void _uploadFileToFirebaseStorage() async {
     if (_uploadedFile != null) {
       String fileName = DateTime.now().millisecondsSinceEpoch.toString() +
@@ -148,7 +186,6 @@ class _SummarizeDocState extends State<SummarizeDoc> {
       setState(() {
         _fileUploaded = true;
       });
-
     }
   }
 }

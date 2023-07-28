@@ -31,6 +31,9 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+
+# from here
+lib/widgets/my_app_bar.dart
 lib/services/
 # UI dart
 /lib/models/firebase_file.dart
