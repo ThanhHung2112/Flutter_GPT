@@ -13,29 +13,7 @@
       return Scaffold(
           appBar: MyAppBar(
               title: "Flutter - Summarize Document", isSidebarOpen: false),
-          drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              CustomDrawerHeader(),
-              ListTile(
-                leading: Icon(Icons.home),
-                title: Text('Homepage'),
-                onTap: () {
-                  // TODO: Xử lý khi người dùng nhấn vào trang chủ
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.arrow_back),
-                title: Text('Return'),
-                onTap: () {
-                  // TODO: Xử lý khi người dùng nhấn vào nút quay lại
-                },
-              ),
-              // Thêm các mục khác của sidebar tùy ý
-            ],
-          ),
-        ),
+          drawer: MyDrawer(),
           body: Column(
             children: [
               Expanded(

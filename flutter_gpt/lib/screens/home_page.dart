@@ -1,9 +1,10 @@
 import '../services/ai_handler.dart';
 import 'package:flutter/material.dart';
 import '../services/is_validation.dart';
-import 'package:provider/provider.dart';
 import 'package:gpt_flutter/screens/chat_screen.dart';
 import 'package:gpt_flutter/screens/summarize_page.dart';
+import 'package:gpt_flutter/providers/global_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:gpt_flutter/providers/active_theme_provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,22 +14,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final TextEditingController _textEditingController = TextEditingController();
-  final OpenAIProvider _openAIProvider = OpenAIProvider();
-
+  
   bool _isObscured = true;
   String _chatbotResponse = '';
-
   String _openaikey = '';
-
+  // var apikey = "";
   @override
   void dispose() {
     _textEditingController.dispose();
     super.dispose();
   }
 
+
   @override
   Widget build(BuildContext context) {
-
     const String imageAssetPath = ThemeMode == Themes.dark
         ? 'assets/images/bot.png'
         : 'assets/images/bot.png';
@@ -50,12 +49,11 @@ class _HomePageState extends State<HomePage> {
               child: TextField(
                 controller: _textEditingController,
                 obscureText: _isObscured,
-                onChanged: (value) {
-                  setState(() {
-                    _openaikey = value; // Update _openaikey when the text changes
-                    GlobalSettings globalSettings = GlobalSettings(_openaikey);
-                  });
-                },
+                // onChanged: (value) {
+                //   setState(() {
+                //     _openaikey = value; // Update _openaikey when the text changes
+                //   });
+                // },
                 decoration: InputDecoration(
                   hintText: 'Enter your openaikeys...',
                   border: OutlineInputBorder(
@@ -187,14 +185,16 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         _chatbotResponse = "";
       });
-      _openAIProvider.updateOpenAIKeys(_openaikey);
+
+      Global.openaiKeys = _openaikey;
+      
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const ChatScreen()),
       );
     }
   }
-  
+
   Future<void> _onSummarizePressed() async {
     _openaikey = _textEditingController.text;
 
@@ -225,20 +225,4 @@ class _HomePageState extends State<HomePage> {
       _isObscured = !_isObscured;
     });
   }
-}
-
-class OpenAIProvider extends ChangeNotifier {
-  String _openaikeys = '';
-
-  String get openaikeys => _openaikeys;
-
-  void updateOpenAIKeys(String keys) {
-    _openaikeys = keys;
-    notifyListeners();
-  }
-}
-class GlobalSettings {
-  String openaiKey;
-
-  GlobalSettings(this.openaiKey);
 }

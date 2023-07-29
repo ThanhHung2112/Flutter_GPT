@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../services/voice_handler.dart';
 import '../providers/chats_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gpt_flutter/providers/global_provider.dart';
 
 enum InputMode {
   text,
@@ -13,7 +14,7 @@ enum InputMode {
 
 class TextAndVoiceField extends ConsumerStatefulWidget {
   final String api;
-
+  
   const TextAndVoiceField({super.key, required this.api}); 
 
   @override
@@ -26,7 +27,7 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
   final VoiceHandler voiceHandler = VoiceHandler();
   var _isReplying = false;
   var _isListening = false;
-
+  String openaiKey = Global.openaiKeys;
   @override
   void initState() {
     voiceHandler.initSpeech();
@@ -114,8 +115,6 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
     addToChatList(message, true, DateTime.now().toString());
     addToChatList('Typing...', false, 'typing');
     setInputMode(InputMode.voice);
-    // final chats = ref.read(chatsProvider);
-    // addToChatList(chats.toString(), true, DateTime.now().toString());
     final aiResponse = await AIHandler(widget.api).getResponse(message);
     removeTyping();
     addToChatList(aiResponse, false, DateTime.now().toString());

@@ -2,9 +2,8 @@ import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:gpt_flutter/widgets/my_app_bar.dart';
-import 'package:gpt_flutter/screens/chat_screen.dart';
+import 'package:gpt_flutter/providers/global_provider.dart';
 import 'package:gpt_flutter/screens/summarize__screen.dart';
 import 'package:gpt_flutter/services/upload_file_firebase.dart';
 import 'package:flutter_document_picker/flutter_document_picker.dart';
@@ -16,102 +15,20 @@ class SummarizeDoc extends StatefulWidget {
 }
 
 class _SummarizeDocState extends State<SummarizeDoc> {
-  File? _uploadedFile;
-  bool _fileUploaded = false;
+  bool _fileUploaded = Global.fileUploaded;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:
           MyAppBar(title: "Flutter - Summarize Document", isSidebarOpen: false),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.asset('assets/images/bot.png', height: 100),
-                  Text(
-                    'FlutterChatbot',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Homepage'),
-              onTap: () {
-                // TODO: Xử lý khi người dùng nhấn vào trang chủ
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.arrow_back),
-              title: Text('Return'),
-              onTap: () {
-                // TODO: Xử lý khi người dùng nhấn vào nút quay lại
-              },
-            ),
-            // Thêm các mục khác của sidebar tùy ý
-          ],
-        ),
-      ),
+      drawer: MyDrawer(),
       body: Center(
-        child: _fileUploaded ? SummarizeScreen() : _uploadToCon(context),
-      ),
+          child: _fileUploaded
+              ? SummarizeScreen()
+              : _uploadToCon(context) // PDFWorking(),//,
+          ),
     );
-  }
-
-// nonvoi
-  void _pickAndUploadFile() async {
-    setState(() {
-      _fileUploaded = true;
-    });
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['pdf', 'doc', 'docx'],
-    );
-
-    if (result != null) {
-      setState(() {
-        _uploadedFile = File(result.files.single.path!);
-      });
-      _uploadFileToFirebaseStorage();
-    } else {
-      setState(() {
-        _fileUploaded = true;
-      });
-    }
-  }
-
-  void _uploadFileToFirebaseStorage() async {
-    if (_uploadedFile != null) {
-      String fileName = DateTime.now().millisecondsSinceEpoch.toString() +
-          '.' +
-          _uploadedFile!.path.split('.').last;
-      try {
-        await firebase_storage.FirebaseStorage.instance
-            .ref('uploads/$fileName')
-            .putFile(_uploadedFile!);
-
-        setState(() {
-          _fileUploaded = true;
-        });
-      } catch (e) {
-        setState(() {
-          _fileUploaded = true;
-        });
-        print('Lỗi tải tệp lên: $e');
-      }
-    }
   }
 
   ElevatedButton _downloadfile(BuildContext context) {
@@ -184,7 +101,7 @@ class _SummarizeDocState extends State<SummarizeDoc> {
     firebase_storage.UploadTask? task = await uploadFile(file);
     if (task != null) {
       setState(() {
-        _fileUploaded = true;
+        _fileUploaded = Global.fileUploaded;
       });
     }
   }
