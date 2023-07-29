@@ -71,7 +71,7 @@ class CustomDrawerHeader extends StatelessWidget {
       color: Theme.of(context).colorScheme.secondary,
       padding: EdgeInsets.all(16),
       child: Center(
-        child: Image.asset('assets/images/flutter_aIbot.png', height: 120),
+        child: Image.asset('assets/images/flutter_aibot.png', height: 120),
       ),
     );
   }
