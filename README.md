@@ -49,8 +49,8 @@ Feel free to explore the code and use it as a reference for your own projects!
 
 ### Sidebar
 <p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690565914.png" width="350" alt="Sidebar 1">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690565919.png" width="350" alt="Sidebar 2">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690652234.png" width="350" alt="Sidebar 1">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690652243.png" width="350" alt="Sidebar 2">
 </p>
 
 ## Installation
