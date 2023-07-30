@@ -79,7 +79,7 @@ OpenAI.instance.build(
       ),
     )
 ````
-This trick is quite handy while building code, as it allows you to save time and resources.
+This trick is quite handy while building code, as it allows you to save time and resources and it still works until 31.07.23.
 
 ## Acknowledgements
 
