@@ -19,17 +19,19 @@ final chatsProvider = StateNotifierProvider<ChatNotifier, List<ChatModel>>(
 );
 
 
-// class SummarizeNotifier extends StateNotifier<List<SummarizeModel>> {
-//   SummarizeNotifier() : super([]);
-//   void add(SummarizeModel summarizeModel) {
-//     state = [...state, summarizeModel];
-//   }
 
-//   void removeTyping() {
-//     state = state..removeWhere((chat) => chat.id == 'typing');
-//   }
-// }
+class SummarizeNotifier extends StateNotifier<List<SummarizeModel>> {
+  SummarizeNotifier() : super([]);
 
-// final summarizeProvider = StateNotifierProvider<SummarizeNotifier, List<SummarizeModel>>(
-//   (ref) => SummarizeNotifier(),
-// );
+  void add(SummarizeModel summarizeModel) {
+    state = [...state, summarizeModel];
+  }
+
+  void removeTyping() {
+    state = state..removeWhere((chat) => chat.id == 'typing');
+  }
+}
+
+final summarizeProvider = StateNotifierProvider<SummarizeNotifier, List<SummarizeModel>>(
+  (ref) => SummarizeNotifier(),
+);

@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:gpt_flutter/widgets/my_app_bar.dart';
+import 'package:gpt_flutter/screens/chat_screen.dart';
 import 'package:gpt_flutter/providers/global_provider.dart';
-import 'package:gpt_flutter/screens/summarize__screen.dart';
 import 'package:gpt_flutter/services/upload_file_firebase.dart';
 import 'package:flutter_document_picker/flutter_document_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
@@ -19,20 +19,17 @@ class _SummarizeDocState extends State<SummarizeDoc> {
 
   @override
   Widget build(BuildContext context) {
+     Global.chatType = false;
     return Scaffold(
       appBar:
           MyAppBar(title: "Flutter - Summarize Document", isSidebarOpen: false),
       drawer: MyDrawer(),
       body: Center(
           child: _fileUploaded
-              ? SummarizeScreen()
+              ? ChatScreen(isChatbot: false,)
               : _uploadToCon(context) // PDFWorking(),//,
           ),
     );
-  }
-
-  ElevatedButton _downloadfile(BuildContext context) {
-    return ElevatedButton(child: Text("download"), onPressed: () {});
   }
 
   ElevatedButton _uploadToCon(BuildContext context) {

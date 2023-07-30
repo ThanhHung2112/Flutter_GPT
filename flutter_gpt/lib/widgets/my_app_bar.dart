@@ -1,16 +1,19 @@
 import 'dart:io';
 import 'theme_switch.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../providers/active_theme_provider.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:gpt_flutter/screens/view_pdf.dart';
 import 'package:gpt_flutter/screens/home_page.dart';
+import 'package:gpt_flutter/screens/chat_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gpt_flutter/screens/summarize_page.dart';
+import 'package:gpt_flutter/providers/global_provider.dart';
 import 'package:gpt_flutter/services/upload_file_firebase.dart';
 import 'package:flutter_document_picker/flutter_document_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
-
-
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -31,11 +34,11 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       leading: isSidebarOpen
           ? IconButton(
-              icon: Icon(Icons.arrow_back),
+              icon: Icon(Icons.arrow_back_ios_new),
               onPressed: () => Navigator.of(context).pop(),
             )
           : IconButton(
-              icon: Icon(Icons.menu),
+              icon: Icon(Icons.menu_rounded),
               onPressed: () => _toggleSidebar(context),
             ),
       actions: [
@@ -71,7 +74,11 @@ class CustomDrawerHeader extends StatelessWidget {
       color: Theme.of(context).colorScheme.secondary,
       padding: EdgeInsets.all(16),
       child: Center(
-        child: Image.asset('assets/images/flutter_aibot.png', height: 120),
+        child: SvgPicture.asset(
+                    'assets/icons/flutter-aibot.svg', // Đường dẫn đến tệp SVG cho hình ảnh
+                    height: 140,
+                    width: 100,
+                  ),
       ),
     );
   }
@@ -82,9 +89,8 @@ class MyDrawer extends StatelessWidget {
 
   Future<String> _downloadPDF() async {
     try {
-      final pdfRef = firebase_storage.FirebaseStorage.instance
-          .ref()
-          .child('files');
+      final pdfRef =
+          firebase_storage.FirebaseStorage.instance.ref().child('files');
       final bytes = await pdfRef.getData();
       final dir = await getTemporaryDirectory();
       final file = File('files/some-file.pdf');
@@ -121,51 +127,110 @@ class MyDrawer extends StatelessWidget {
               children: <Widget>[
                 CustomDrawerHeader(),
                 ListTile(
-                  leading: Icon(Icons.home),
-                  title: Text('Home'),
+                  leading: SvgPicture.asset(
+                    'assets/icons/home.svg', // Đường dẫn đến tệp SVG cho hình ảnh
+                    height: 25,
+                    width: 25,
+                  ),
+                  title: Text(
+                    'Home',
+                    style: TextStyle(fontSize: 17),
+                  ),
                   onTap: () {
-                    Navigator.pop(context); // Close the drawer
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              HomePage()), // Replace HomePage with your desired page
+                        builder: (context) => HomePage(),
+                      ),
                     );
                   },
                 ),
+                Global.chatType
+                    ? ListTile(
+                        leading:
+                            Image.asset('assets/images/licensing.png',
+                            height: 25,width: 42,),
+                        title: Text(
+                          'Summarize Document',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SummarizeDoc(),
+                            ),
+                          );
+                        },
+                      )
+                    : ListTile(
+                        leading: Image.asset('assets/images/bot.png', height: 25,width: 52,),
+                        title: Text(
+                          'Chatbot',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const ChatScreen(isChatbot: true),
+                            ),
+                          );
+                        },
+                      ),
                 ListTile(
-                  leading: Icon(Icons.drive_folder_upload),
-                  title: Text('Upload PDF'),
+                  leading: Image.asset('assets/images/folder.png', height: 25,width: 42,),
+                  title: Text(
+                    'Upload PDF',
+                    style: TextStyle(fontSize: 17),
+                  ),
                   onTap: () => _selectFile(context),
                 ),
                 ListTile(
-                  leading: Icon(Icons.picture_as_pdf),
-                  title: Text('View PDF'),
+                  leading: SvgPicture.asset(
+                    'assets/icons/view-file.svg', // Đường dẫn đến tệp SVG cho hình ảnh
+                    height: 25,
+                    width: 25,
+                  ),
+                  title: Text(
+                    'View PDF',
+                    style: TextStyle(fontSize: 17),
+                  ),
                   onTap: () => _navigateToPDFViewer(context),
                 ),
                 ListTile(
-                  leading: Icon(Icons.arrow_back),
-                  title: Text('Return'),
+                  leading: SvgPicture.asset(
+                    'assets/icons/back.svg', // Đường dẫn đến tệp SVG cho hình ảnh
+                    height: 25,
+                    width: 25,
+                  ),
+                  title: Text(
+                    'Return',
+                    style: TextStyle(fontSize: 17),
+                  ),
                   onTap: () {
-                    Navigator.pop(context); // Close the drawer
-                    // TODO: Handle when the user taps on the return button in the drawer
+                    Navigator.pop(context);
                   },
                 ),
-                // Add other items of the sidebar as needed
               ],
             ),
           ),
           ListTile(
-            leading: Icon(Icons.close),
-            title: Text('Close'),
+            leading: Image.asset('assets/images/cancel.png', height: 30,width: 52,),
+            title: Text(
+              'Close',
+              style: TextStyle(fontSize: 18),
+            ),
             onTap: () {
-              Navigator.pop(context); // Close the drawer
+              Navigator.pop(context);
             },
           ),
         ],
       ),
     );
   }
+
   Future<void> _selectFile(BuildContext context) async {
     final path = await FlutterDocumentPicker.openDocument();
     print(path);

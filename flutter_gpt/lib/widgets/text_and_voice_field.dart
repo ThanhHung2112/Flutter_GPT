@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../services/voice_handler.dart';
 import '../providers/chats_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gpt_flutter/models/summarize_model.dart';
 import 'package:gpt_flutter/providers/global_provider.dart';
 
 enum InputMode {
@@ -13,10 +14,10 @@ enum InputMode {
 }
 
 class TextAndVoiceField extends ConsumerStatefulWidget {
-  final String api;
-  
-  const TextAndVoiceField({super.key, required this.api}); 
+  const TextAndVoiceField({super.key});
+  // final List<dynamic> chatHistory; // Sử dụng dynamic để đáp ứng cả hai loại ChatModel và SummarizeModel
 
+  // const TextAndVoiceField({required Key key, this.chatHistory}) : super(key: key);
   @override
   ConsumerState<TextAndVoiceField> createState() => _TextAndVoiceFieldState();
 }
@@ -28,6 +29,8 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
   var _isReplying = false;
   var _isListening = false;
   String openaiKey = Global.openaiKeys;
+
+  // final bool isChatbot = ;
   @override
   void initState() {
     voiceHandler.initSpeech();
@@ -44,7 +47,6 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      
       children: [
         Expanded(
           child: TextField(
@@ -115,7 +117,10 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
     addToChatList(message, true, DateTime.now().toString());
     addToChatList('Typing...', false, 'typing');
     setInputMode(InputMode.voice);
-    final aiResponse = await AIHandler(widget.api).getResponse(message);
+    final aiResponse = await AIHandler(Global.openaiKeys).getResponse(message);
+    // final chatChats = ref.watch(chatsProvider).reversed.toList();
+    // final summarizeChats = ref.watch(summarizeProvider).reversed.toList();
+
     removeTyping();
     addToChatList(aiResponse, false, DateTime.now().toString());
     setReplyingState(false);
@@ -134,16 +139,31 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
   }
 
   void removeTyping() {
-    final chats = ref.read(chatsProvider.notifier);
-    chats.removeTyping();
+    if (Global.chatType) {
+      final chats = ref.read(chatsProvider.notifier);
+      chats.removeTyping();
+    } else {
+      final chats = ref.read(summarizeProvider.notifier);
+      ;
+      chats.removeTyping();
+    }
   }
 
   void addToChatList(String message, bool isMe, String id) {
-    final chats = ref.read(chatsProvider.notifier);
-    chats.add(ChatModel(
-      id: id,
-      message: message,
-      isMe: isMe,
-    ));
+    if (Global.chatType) {
+      final chats = ref.read(chatsProvider.notifier);
+      chats.add(ChatModel(
+        id: id,
+        message: message,
+        isMe: isMe,
+      ));
+    } else {
+      final chats = ref.read(summarizeProvider.notifier);
+      chats.add(SummarizeModel(
+        id: id,
+        message: message,
+        isMe: isMe,
+      ));
+    }
   }
 }

@@ -40,6 +40,9 @@ lib/services/
 /lib/screens/download_file.dart
 /lib/services/is_validation.dart
 lib/services/ai_handler.dart
+/lib/widgets/text_and_voice_field.dart
+
+
 # Symbolication related
 app.*.symbols
 

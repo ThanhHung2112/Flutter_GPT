@@ -14,23 +14,23 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final TextEditingController _textEditingController = TextEditingController();
-  
   bool _isObscured = true;
   String _chatbotResponse = '';
-  String _openaikey = '';
-  // var apikey = "";
+  String _openaikey = Global.openaiKeys;
+  
+  
   @override
   void dispose() {
     _textEditingController.dispose();
     super.dispose();
   }
-
-
+  
   @override
   Widget build(BuildContext context) {
     const String imageAssetPath = ThemeMode == Themes.dark
         ? 'assets/images/bot.png'
         : 'assets/images/bot.png';
+      
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -48,12 +48,8 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(12.0),
               child: TextField(
                 controller: _textEditingController,
+                
                 obscureText: _isObscured,
-                // onChanged: (value) {
-                //   setState(() {
-                //     _openaikey = value; // Update _openaikey when the text changes
-                //   });
-                // },
                 decoration: InputDecoration(
                   hintText: 'Enter your openaikeys...',
                   border: OutlineInputBorder(
@@ -187,10 +183,9 @@ class _HomePageState extends State<HomePage> {
       });
 
       Global.openaiKeys = _openaikey;
-      
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const ChatScreen()),
+        MaterialPageRoute(builder: (context) => const ChatScreen(isChatbot: true)),
       );
     }
   }
@@ -198,7 +193,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> _onSummarizePressed() async {
     _openaikey = _textEditingController.text;
 
-    //String _openaikey = "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";//_textEditingController.text;
+    //String _openaikey = "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";
     bool isValidKey = await isKeyValid(_openaikey);
 
     if (_openaikey.isEmpty) {
@@ -213,6 +208,9 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         _chatbotResponse = "";
       });
+
+      Global.openaiKeys = _openaikey;
+
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => SummarizeDoc()),
