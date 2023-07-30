@@ -20,6 +20,7 @@ Feel free to explore the code and use it as a reference for your own projects!
 | 25.07.23-26.07.23 | Firebase Connection | Set up Firebase_CIL and implemented file upload to Firebase |
 | 28.07.23 | Sidebar SM chatbot| Test the summarize feature & chatbot memory function, Sidebar UI, update the getApiKey method.|
 | 29.07.23 | Upload file from Sidebar | Upload file/PDF from Sidebar |
+| 30.07.23 | Summarize model | SummarizeModel and Summrizechat send & respond message functionality, update sidebar.
 ## USER INTERFACE
 
 ### Home Page
