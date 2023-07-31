@@ -50,8 +50,8 @@ Feel free to explore the code and use it as a reference for your own projects!
 
 ### Sidebar
 <p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690652234.png" width="350" alt="Sidebar 1">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690652243.png" width="350" alt="Sidebar 2">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690736790.png" width="350" alt="Sidebar 1">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690736844.png" width="350" alt="Sidebar 2">
 </p>
 
 ## Installation
@@ -79,7 +79,7 @@ OpenAI.instance.build(
       ),
     )
 ````
-This trick is quite handy while building code, as it allows you to save time and resources.
+This trick is quite handy while building code, as it allows you to save time and resources and it still works until 31.07.23.
 
 ## Acknowledgements
 
