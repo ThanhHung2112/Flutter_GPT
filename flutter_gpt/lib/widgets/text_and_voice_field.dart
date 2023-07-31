@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gpt_flutter/models/summarize_model.dart';
 import 'package:gpt_flutter/providers/global_provider.dart';
 
+
 enum InputMode {
   text,
   voice,
@@ -118,8 +119,11 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
     addToChatList('Typing...', false, 'typing');
     setInputMode(InputMode.voice);
     final aiResponse = await AIHandler(Global.openaiKeys).getResponse(message);
+
     // final chatChats = ref.watch(chatsProvider).reversed.toList();
     // final summarizeChats = ref.watch(summarizeProvider).reversed.toList();
+
+    // addToChatList(, true, DateTime.now().toString());
 
     removeTyping();
     addToChatList(aiResponse, false, DateTime.now().toString());

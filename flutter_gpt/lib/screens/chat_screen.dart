@@ -19,7 +19,7 @@ class ChatScreen extends StatelessWidget {
       appBar: isChatbot
           ? MyAppBar(title: "Flutter - Chatbot", isSidebarOpen: false)
           : null,
-      drawer: MyDrawer(),
+      drawer: MyDrawer(parentContext: context),
       body: Column(
         children: [
           Expanded(

@@ -23,7 +23,7 @@ class _SummarizeDocState extends State<SummarizeDoc> {
     return Scaffold(
       appBar:
           MyAppBar(title: "Flutter - Summarize Document", isSidebarOpen: false),
-      drawer: MyDrawer(),
+      drawer: MyDrawer(parentContext: context),
       body: Center(
           child: _fileUploaded
               ? ChatScreen(isChatbot: false,)
