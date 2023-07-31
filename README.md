@@ -49,10 +49,22 @@ Feel free to explore the code and use it as a reference for your own projects!
   <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690422201.png" width="350" alt="Summarize Screen 2">
 </p>
 
+### Summarize Chat
+<p align="center">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690822673.png" width="350" alt="Summarize Chat 1">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690822830.png" width="350" alt="Summarize Chat 2">
+</p>
+
 ### Sidebar
 <p align="center">
   <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690736790.png" width="350" alt="Sidebar 1">
   <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690736844.png" width="350" alt="Sidebar 2">
+</p>
+
+### View PDF
+<p align="center">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690822798.png" width="350" alt="Viewpdf 1">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690822809.png" width="350" alt="Viewpdf 2">
 </p>
 
 ## Installation
