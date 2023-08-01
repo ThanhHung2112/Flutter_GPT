@@ -13,7 +13,7 @@ Feel free to explore the code and use it as a reference for your own projects!
 | Date             | Task                | Notes                                               |
 |------------------|---------------------|-----------------------------------------------------|
 |12.07.23          | Project setup       |                                                     |
-|13➖14.07.23| Chatbot UI     | Theme, chatbot interface                             |
+|13.07.23➖14.07.23| Chatbot UI     | Theme, chatbot interface                             |
 |17➖19.07.23| Send & Respond  | Send & respond message functionality               |
 |21➖23.07.23 | AIHandler        | Integrated chat_gpt_sdk for AI capabilities         |
 | 24.07.23 | HomePage UI        | Implemented isKeyValid check and set up Navigator   |
