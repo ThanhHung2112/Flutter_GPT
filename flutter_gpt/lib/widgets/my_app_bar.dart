@@ -5,10 +5,9 @@ import 'theme_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:docx_to_text/docx_to_text.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 import '../providers/active_theme_provider.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:gpt_flutter/screens/view_pdf.dart';
 import 'package:gpt_flutter/screens/home_page.dart';
 import 'package:gpt_flutter/screens/chat_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -94,37 +93,12 @@ class MyDrawer extends StatelessWidget {
   final String pdfFileName = 'some-file.pdf';
   Uint8List? fileData;
   MyDrawer({required this.parentContext});
-  // Future<String> _downloadPDF() async {
-  //   try {
-  //     final pdfRef =
-  //         firebase_storage.FirebaseStorage.instance.ref().child('files');
-  //     final bytes = await pdfRef.getData();
-  //     final dir = await getTemporaryDirectory();
-  //     final file = File('files/some-file.pdf');
-  //     await file.writeAsBytes(bytes!);
-  //     print('PDF downloaded successfully: ${file.path}');
-  //     return file.path;
-  //   } catch (e) {
-  //     print('Error downloading PDF: $e');
-  //     return '';
-  //   }
-  // }
-
-  void _navigateToPDFViewer(BuildContext context) async {
-    print('Navigating to PDF viewer...');
-    // String pdfUrl = await _downloadPDF();
-    // if (pdfUrl.isNotEmpty) {
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(
-    //       builder: (context) => PDFViewerScreen(pdfUrl: pdfUrl),
-    //     ),
-    //   );
-    // }
-  }
 
   @override
   Widget build(BuildContext context) {
+    final uploadAndViewFile =
+        UploadAndViewFile(); // Create an instance of UploadAndViewFile
+
     return Drawer(
       child: Column(
         children: <Widget>[
@@ -174,7 +148,7 @@ class MyDrawer extends StatelessWidget {
                       )
                     : ListTile(
                         leading: Image.asset(
-                          'assets/images/bot.png',
+                          'assets/images/robot.png',
                           height: 25,
                           width: 52,
                         ),
@@ -202,23 +176,27 @@ class MyDrawer extends StatelessWidget {
                     'Upload PDF',
                     style: TextStyle(fontSize: 17),
                   ),
-                  onTap: () => _selectFile(),
+                  onTap: () async {
+                    await uploadAndViewFile.selectFile();
+                    await uploadAndViewFile.readFile(context); 
+                  }, // Call the _selectFile() function from UploadAndViewFile
                 ),
+                // Add the ListTile for viewing a file
                 ListTile(
+                    leading: SvgPicture.asset(
+                      'assets/icons/view-file.svg',
+                      height: 25,
+                      width: 25,
+                    ),
+                    title: Text(
+                      'View PDF',
+                      style: TextStyle(fontSize: 17),
+                    ),
+                    onTap: () => uploadAndViewFile.readFile(context) // Call the _readFile() function from UploadAndViewFile
+                    ),
+                 ListTile(
                   leading: SvgPicture.asset(
-                    'assets/icons/view-file.svg', // Đường dẫn đến tệp SVG cho hình ảnh
-                    height: 25,
-                    width: 25,
-                  ),
-                  title: Text(
-                    'View PDF',
-                    style: TextStyle(fontSize: 17),
-                  ),
-                  onTap: () => _readFile(), //_navigateToPDFViewer(context),
-                ),
-                ListTile(
-                  leading: SvgPicture.asset(
-                    'assets/icons/back.svg', // Đường dẫn đến tệp SVG cho hình ảnh
+                    'assets/icons/back.svg',
                     height: 25,
                     width: 25,
                   ),
@@ -230,10 +208,11 @@ class MyDrawer extends StatelessWidget {
                     Navigator.pop(context);
                   },
                 ),
+                // Your existing ListTile widgets...
               ],
             ),
           ),
-          ListTile(
+           ListTile(
             leading: Image.asset(
               'assets/images/cancel.png',
               height: 30,
@@ -252,38 +231,5 @@ class MyDrawer extends StatelessWidget {
     );
   }
 
-  Future<void> _selectFile() async {
-    final path = await FlutterDocumentPicker.openDocument();
-    print(path);
-    File file = File(path!);
-    firebase_storage.UploadTask? task = await uploadFile(file);
-  }
-
-  Future<void> _readFile() async {
-    try {
-      // Create a reference to the file
-      firebase_storage.Reference ref = firebase_storage.FirebaseStorage.instance
-          .ref()
-          .child('files')
-          .child(Global.currentFileName);
-
-      // Tải dữ liệu của file
-      fileData = await ref.getData();
-      final pdfDocument = PdfDocument(inputBytes: fileData!);
-      
-      PdfTextExtractor extractor = PdfTextExtractor(pdfDocument);
-      String text = extractor.extractText();
-
-      Global.fileContent = text;
-
-      Navigator.push(
-        parentContext, // Use parentContext here instead of context
-        MaterialPageRoute(
-          builder: (context) => FileDataScreen(fileData: fileData!),
-        ),
-      );
-    } catch (e) {
-      print("Lỗi khi đọc file: $e");
-    }
-  }
+  // Your existing functions...
 }

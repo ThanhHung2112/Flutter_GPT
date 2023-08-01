@@ -4,29 +4,37 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:gpt_flutter/widgets/my_app_bar.dart';
 import 'package:gpt_flutter/screens/chat_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gpt_flutter/models/summarize_model.dart';
+import 'package:gpt_flutter/providers/chats_provider.dart';
 import 'package:gpt_flutter/providers/global_provider.dart';
+import 'package:gpt_flutter/widgets/text_and_voice_field.dart';
 import 'package:gpt_flutter/services/upload_file_firebase.dart';
 import 'package:flutter_document_picker/flutter_document_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
-class SummarizeDoc extends StatefulWidget {
+class SummarizeDoc extends ConsumerStatefulWidget {
   @override
   _SummarizeDocState createState() => _SummarizeDocState();
 }
 
-class _SummarizeDocState extends State<SummarizeDoc> {
+
+class _SummarizeDocState extends ConsumerState<SummarizeDoc> {
   bool _fileUploaded = Global.fileUploaded;
+  final uploadAndViewFile = UploadAndViewFile();
 
   @override
   Widget build(BuildContext context) {
-     Global.chatType = false;
+    Global.chatType = false;
     return Scaffold(
       appBar:
           MyAppBar(title: "Flutter - Summarize Document", isSidebarOpen: false),
       drawer: MyDrawer(parentContext: context),
       body: Center(
           child: _fileUploaded
-              ? ChatScreen(isChatbot: false,)
+              ? ChatScreen(
+                  isChatbot: false,
+                )
               : _uploadToCon(context) // PDFWorking(),//,
           ),
     );
@@ -34,10 +42,15 @@ class _SummarizeDocState extends State<SummarizeDoc> {
 
   ElevatedButton _uploadToCon(BuildContext context) {
     return ElevatedButton(
-      onPressed: () => _selectFile(context),
-      // {
-      //   Navigator.push(context, MaterialPageRoute(builder: (context) => UploadPDF()));
-      // },//_pickAndUploadFile,
+      onPressed: () async {
+        await uploadAndViewFile.selectFile();
+        await uploadAndViewFile.readFile(context);
+        setState(() {
+          _fileUploaded = Global.fileUploaded;
+        });
+
+        addToChatList(Global.status, false, DateTime.now().toString());
+      },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -91,15 +104,12 @@ class _SummarizeDocState extends State<SummarizeDoc> {
     );
   }
 
-  Future<void> _selectFile(BuildContext context) async {
-    final path = await FlutterDocumentPicker.openDocument();
-    print(path);
-    File file = File(path!);
-    firebase_storage.UploadTask? task = await uploadFile(file);
-    if (task != null) {
-      setState(() {
-        _fileUploaded = Global.fileUploaded;
-      });
-    }
+  void addToChatList(String message, bool isMe, String id) {
+    final chats = ref.read(summarizeProvider.notifier);
+    chats.add(SummarizeModel(
+      id: id,
+      message: message,
+      isMe: isMe,
+    ));
   }
 }

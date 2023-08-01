@@ -15,22 +15,20 @@ enum InputMode {
 }
 
 class TextAndVoiceField extends ConsumerStatefulWidget {
+  
   const TextAndVoiceField({super.key});
-  // final List<dynamic> chatHistory; // Sử dụng dynamic để đáp ứng cả hai loại ChatModel và SummarizeModel
-
-  // const TextAndVoiceField({required Key key, this.chatHistory}) : super(key: key);
   @override
   ConsumerState<TextAndVoiceField> createState() => _TextAndVoiceFieldState();
 }
 
 class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
+
   InputMode _inputMode = InputMode.voice;
   final _messageController = TextEditingController();
   final VoiceHandler voiceHandler = VoiceHandler();
   var _isReplying = false;
   var _isListening = false;
   String openaiKey = Global.openaiKeys;
-
   // final bool isChatbot = ;
   @override
   void initState() {
@@ -120,10 +118,7 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
     setInputMode(InputMode.voice);
     final aiResponse = await AIHandler(Global.openaiKeys).getResponse(message);
 
-    // final chatChats = ref.watch(chatsProvider).reversed.toList();
-    // final summarizeChats = ref.watch(summarizeProvider).reversed.toList();
-
-    // addToChatList(, true, DateTime.now().toString());
+    addToChatList(Global.fileContent, true, DateTime.now().toString());
 
     removeTyping();
     addToChatList(aiResponse, false, DateTime.now().toString());
@@ -152,7 +147,6 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
       chats.removeTyping();
     }
   }
-
   void addToChatList(String message, bool isMe, String id) {
     if (Global.chatType) {
       final chats = ref.read(chatsProvider.notifier);
@@ -170,4 +164,5 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
       ));
     }
   }
+  
 }
