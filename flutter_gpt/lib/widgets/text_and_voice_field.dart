@@ -118,7 +118,7 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
     setInputMode(InputMode.voice);
     final aiResponse = await AIHandler(Global.openaiKeys).getResponse(message);
 
-    addToChatList(Global.fileContent, true, DateTime.now().toString());
+    // addToChatList(Global.fileContent, true, DateTime.now().toString());
 
     removeTyping();
     addToChatList(aiResponse, false, DateTime.now().toString());

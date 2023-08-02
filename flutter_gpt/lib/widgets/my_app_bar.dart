@@ -11,12 +11,15 @@ import '../providers/active_theme_provider.dart';
 import 'package:gpt_flutter/screens/home_page.dart';
 import 'package:gpt_flutter/screens/chat_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gpt_flutter/models/summarize_model.dart';
 import 'package:gpt_flutter/screens/summarize_page.dart';
+import 'package:gpt_flutter/providers/chats_provider.dart';
 import 'package:gpt_flutter/providers/global_provider.dart';
 import 'package:gpt_flutter/services/view_file_firebase.dart';
 import 'package:gpt_flutter/services/upload_file_firebase.dart';
 import 'package:flutter_document_picker/flutter_document_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+
 // import 'package:pdf/pdf.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -88,11 +91,17 @@ class CustomDrawerHeader extends StatelessWidget {
   }
 }
 
-class MyDrawer extends StatelessWidget {
-  final BuildContext parentContext; // Accept the BuildContext as a parameter
+class MyDrawer extends ConsumerStatefulWidget {
+  MyDrawer({required this.parentContext});
+  final BuildContext parentContext;
+  @override
+  _MyDrawerState createState() => _MyDrawerState();
+}
+
+class _MyDrawerState extends ConsumerState<MyDrawer> {
+  // Accept the BuildContext as a parameter
   final String pdfFileName = 'some-file.pdf';
   Uint8List? fileData;
-  MyDrawer({required this.parentContext});
 
   @override
   Widget build(BuildContext context) {
@@ -173,15 +182,16 @@ class MyDrawer extends StatelessWidget {
                     width: 42,
                   ),
                   title: Text(
-                    'Upload PDF',
+                    'Upload File',
                     style: TextStyle(fontSize: 17),
                   ),
                   onTap: () async {
                     await uploadAndViewFile.selectFile();
-                    await uploadAndViewFile.readFile(context); 
-                  }, // Call the _selectFile() function from UploadAndViewFile
+                    await uploadAndViewFile.readFile(context);
+                    addToChatList(
+                        Global.status, false, DateTime.now().toString());
+                  },
                 ),
-                // Add the ListTile for viewing a file
                 ListTile(
                     leading: SvgPicture.asset(
                       'assets/icons/view-file.svg',
@@ -189,12 +199,13 @@ class MyDrawer extends StatelessWidget {
                       width: 25,
                     ),
                     title: Text(
-                      'View PDF',
+                      'View File',
                       style: TextStyle(fontSize: 17),
                     ),
-                    onTap: () => uploadAndViewFile.readFile(context) // Call the _readFile() function from UploadAndViewFile
+                    onTap: () => uploadAndViewFile.readFile(
+                        context) // Call the _readFile() function from UploadAndViewFile
                     ),
-                 ListTile(
+                ListTile(
                   leading: SvgPicture.asset(
                     'assets/icons/back.svg',
                     height: 25,
@@ -212,7 +223,7 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
           ),
-           ListTile(
+          ListTile(
             leading: Image.asset(
               'assets/images/cancel.png',
               height: 30,
@@ -231,5 +242,13 @@ class MyDrawer extends StatelessWidget {
     );
   }
 
-  // Your existing functions...
+  void addToChatList(String message, bool isMe, String id) {
+    final chats = ref.read(summarizeProvider.notifier);
+    chats.add(SummarizeModel(
+      id: id,
+      message: message,
+      isMe: isMe,
+    ));
+  }
+
 }

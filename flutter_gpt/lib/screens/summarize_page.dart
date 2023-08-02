@@ -35,7 +35,7 @@ class _SummarizeDocState extends ConsumerState<SummarizeDoc> {
               ? ChatScreen(
                   isChatbot: false,
                 )
-              : _uploadToCon(context) // PDFWorking(),//,
+              : _uploadToCon(context) 
           ),
     );
   }

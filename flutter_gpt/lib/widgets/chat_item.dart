@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 class ChatItem extends StatelessWidget {
   final String text;
@@ -39,11 +40,34 @@ class ChatItem extends StatelessWidget {
                 bottomRight: Radius.circular(isMe ? 0 : 15),
               ),
             ),
-            child: Text(
-              text,
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSecondary,
-              ),
+            child: Row(
+              // Wrap the text and the icon in a Row
+              mainAxisSize: MainAxisSize
+                  .min, // This will make the Row take only the necessary space
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Expanded(
+                  // Let the text take the available space
+                  child: Text(
+                    text,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSecondary,
+                    ),
+                  ),
+                ),
+                if (text == "Typing...") 
+                  Container()
+                else
+                  GestureDetector(
+                    onTap: () => _speakText(context),
+                    child: Icon(
+                      Icons.volume_up_rounded,
+                      size: 18,
+                      color: Theme.of(context).colorScheme.onSecondary,
+                    ),
+                  )
+                   // An empty container when the condition is false
+              ],
             ),
           ),
           if (isMe) const SizedBox(width: 15),
@@ -51,6 +75,14 @@ class ChatItem extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> _speakText(BuildContext context) async {
+    final FlutterTts flutterTts = FlutterTts();
+
+    await flutterTts.setLanguage("en-US"); // Set the language (you can change to other languages if needed)
+    // await flutterTts.setLanguage("vi-VN");
+    await flutterTts.speak(text); // Speak the text in the boxchat
   }
 }
 

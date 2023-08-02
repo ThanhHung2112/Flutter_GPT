@@ -41,14 +41,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.4"
-  beautiful_soup_dart:
-    dependency: transitive
-    description:
-      name: beautiful_soup_dart
-      sha256: "57e23946c85776dd9515a4e9a14263fff37dbedbd559bc4412bf565886e12b10"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.0"
   bidi:
     dependency: transitive
     description:
@@ -105,14 +97,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
-  cross_file:
-    dependency: transitive
-    description:
-      name: cross_file
-      sha256: "0b0036e8cccbfbe0555fd83c1d31a6f30b77a96b598b35a5d36dd41f718695e9"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.3+4"
   crypto:
     dependency: transitive
     description:
@@ -121,14 +105,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
-  csslib:
-    dependency: transitive
-    description:
-      name: csslib
-      sha256: "706b5707578e0c1b4b7550f64078f0a0f19dec3f50a178ffae7006b0a9ca58fb"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -395,6 +371,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_tts:
+    dependency: "direct main"
+    description:
+      name: flutter_tts
+      sha256: "679192274aef74c9fda70dfe8d6f431de118aee91ef1eb415bba361d78a9cd08"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.7.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -440,14 +424,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.10.2+1"
-  html:
-    dependency: transitive
-    description:
-      name: html
-      sha256: "3a7812d5bcd2894edf53dfaf8cd640876cf6cef50a8f238745c8b8120ea74d3a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.15.4"
   http:
     dependency: transitive
     description:
@@ -480,14 +456,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.18.1"
-  iregexp:
-    dependency: transitive
-    description:
-      name: iregexp
-      sha256: "0bab197b31adad22c32eef580cda11338dad24ee0e46187d994baef9acee7564"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.1"
   js:
     dependency: transitive
     description:
@@ -504,22 +472,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.8.0"
-  json_path:
-    dependency: transitive
-    description:
-      name: json_path
-      sha256: "0a38c33d6ab3a71795c4ce1867c6278bf1e87dabbc1f707307a00efc55750d9c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.6.2"
-  langchain:
-    dependency: "direct main"
-    description:
-      name: langchain
-      sha256: "185d7771a0a16d6a7c3389fdaf1463e3a020c2de8db547330f908694ad1a1c44"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.2"
   lints:
     dependency: transitive
     description:
@@ -544,22 +496,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.0"
-  math_expressions:
-    dependency: transitive
-    description:
-      name: math_expressions
-      sha256: "3576593617c3870d75728a751f6ec6e606706d44e363f088ac394b5a28a98064"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.0"
-  maybe_just_nothing:
-    dependency: transitive
-    description:
-      name: maybe_just_nothing
-      sha256: "0c06326e26d08f6ed43247404376366dc4d756cef23a4f1db765f546224c35e0"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.5.3"
   meta:
     dependency: transitive
     description:
@@ -728,14 +664,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.1"
-  rfc_6901:
-    dependency: transitive
-    description:
-      name: rfc_6901
-      sha256: "8d97680dada633146cf75ab9382f2ce2b7e4bd63ceecd867416cf43b5832b988"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.1"
   riverpod:
     dependency: transitive
     description:
@@ -745,7 +673,7 @@ packages:
     source: hosted
     version: "2.1.3"
   shared_preferences:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: shared_preferences
       sha256: "0344316c947ffeb3a529eac929e1978fcd37c26be4e8468628bac399365a3ca1"
