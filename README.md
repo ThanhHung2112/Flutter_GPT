@@ -27,7 +27,6 @@ Feel free to explore the code and use it as a reference for your own projects!
 
 [![Watch the video](https://img.youtube.com/vi/sltd5RQohxk/maxresdefault.jpg)](https://www.youtube.com/watch?v=sltd5RQohxk)
 
-
 ### Home Page
 <p align="center">
   <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421223.png" width="350" alt="Home Page 1">
