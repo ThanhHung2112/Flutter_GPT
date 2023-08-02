@@ -44,7 +44,7 @@ git clone https://github.com/ThanhHung2112/Flutter_GPT.git
 cd Flutter_GPT/flutter_gpt
 flutter pub get
 flutter run
-````
+```
 It may take a while for the first build of this app.
 
 ## Interesting discovery
