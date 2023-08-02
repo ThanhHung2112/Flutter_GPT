@@ -25,51 +25,8 @@ Feel free to explore the code and use it as a reference for your own projects!
 | 01.08.23 | Update readfile feature & uploadfile Notify | Update file reading feature to support docx and txt formats and add file upload notification for better user experience. Streamline the code for improved efficiency.|
 ## USER INTERFACE
 
-https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/f4c3f8f4-18d1-4db7-8810-d21bb8514a1d
+https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/483447f7-a623-4b34-9c24-c71f8feac0f4
 
-
-### Home Page
-<p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421223.png" width="350" alt="Home Page 1">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421239.png" width="350" alt="Home Page 2">
-</p>
-
-### Give the OpenAI Keys
-<p>You have to provide the correct OpenAI API keys to get started.</p>
-<p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690426068.png" width="350" alt="OpenAI Keys">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421550.png" width="350" alt="OpenAI Keys">
-</p>
-
-### Chatbot Screen
-<p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421902.png" width="350" alt="Chatbot Screen 1">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690422007.png" width="350" alt="Chatbot Screen 2">
-</p>
-
-### Summarize Screens
-<p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690421964.png" width="350" alt="Summarize Screen 1">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690422201.png" width="350" alt="Summarize Screen 2">
-</p>
-
-### Summarize Chat
-<p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690822673.png" width="350" alt="Summarize Chat 1">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690822830.png" width="350" alt="Summarize Chat 2">
-</p>
-
-### Sidebar
-<p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690736790.png" width="350" alt="Sidebar 1">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690736844.png" width="350" alt="Sidebar 2">
-</p>
-
-### View PDF
-<p align="center">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690822798.png" width="350" alt="Viewpdf 1">
-  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690822809.png" width="350" alt="Viewpdf 2">
-</p>
 
 ## Installation
 
