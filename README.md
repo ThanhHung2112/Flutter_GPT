@@ -28,6 +28,10 @@ Feel free to explore the code and use it as a reference for your own projects!
 
 https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/483447f7-a623-4b34-9c24-c71f8feac0f4
 
+<p align="center">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690989691.png" width="350" alt="Home Page 1">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690990527.png" width="350" alt="Home Page 2">
+</p>
 
 ## Installation
 
