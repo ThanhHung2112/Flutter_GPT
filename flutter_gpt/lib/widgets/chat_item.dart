@@ -41,13 +41,10 @@ class ChatItem extends StatelessWidget {
               ),
             ),
             child: Row(
-              // Wrap the text and the icon in a Row
-              mainAxisSize: MainAxisSize
-                  .min, // This will make the Row take only the necessary space
+              mainAxisSize: MainAxisSize.min, 
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Expanded(
-                  // Let the text take the available space
                   child: Text(
                     text,
                     style: TextStyle(
@@ -66,7 +63,6 @@ class ChatItem extends StatelessWidget {
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
                   )
-                   // An empty container when the condition is false
               ],
             ),
           ),

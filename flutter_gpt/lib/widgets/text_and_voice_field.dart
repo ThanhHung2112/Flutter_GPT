@@ -8,21 +8,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gpt_flutter/models/summarize_model.dart';
 import 'package:gpt_flutter/providers/global_provider.dart';
 
-
 enum InputMode {
   text,
   voice,
 }
 
 class TextAndVoiceField extends ConsumerStatefulWidget {
-  
   const TextAndVoiceField({super.key});
   @override
   ConsumerState<TextAndVoiceField> createState() => _TextAndVoiceFieldState();
 }
 
 class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
-
   InputMode _inputMode = InputMode.voice;
   final _messageController = TextEditingController();
   final VoiceHandler voiceHandler = VoiceHandler();
@@ -116,10 +113,17 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
     addToChatList(message, true, DateTime.now().toString());
     addToChatList('Typing...', false, 'typing');
     setInputMode(InputMode.voice);
+
     final aiResponse = await AIHandler(Global.openaiKeys).getResponse(message);
 
-    // addToChatList(Global.fileContent, true, DateTime.now().toString());
+    if (Global.chatType) {
+      Global.chatHistory = Global.chatHistory + "user: " + message + "\n";
+      Global.chatHistory = Global.chatHistory + "you: " + aiResponse + "\n";
+    } else {
+      Global.summaryHistory = Global.summaryHistory + "user: " + message + "\n";
+      Global.summaryHistory = Global.summaryHistory + "you: " + aiResponse + "\n";
 
+    }
     removeTyping();
     addToChatList(aiResponse, false, DateTime.now().toString());
     setReplyingState(false);
@@ -147,6 +151,7 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
       chats.removeTyping();
     }
   }
+
   void addToChatList(String message, bool isMe, String id) {
     if (Global.chatType) {
       final chats = ref.read(chatsProvider.notifier);
@@ -164,5 +169,4 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
       ));
     }
   }
-  
 }
