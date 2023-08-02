@@ -25,8 +25,7 @@ Feel free to explore the code and use it as a reference for your own projects!
 | 01.08.23 | Update readfile feature & uploadfile Notify | Update file reading feature to support docx and txt formats and add file upload notification for better user experience. Streamline the code for improved efficiency.|
 ## USER INTERFACE
 
-
-https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/162fcb30-bdec-4a08-9041-e2b26417118a
+https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/196bb29d-31bc-4097-9f9d-cccce3f52ad7
 
 ### Home Page
 <p align="center">
