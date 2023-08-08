@@ -24,6 +24,7 @@ Feel free to explore the code and use it as a reference for your own projects!
 | 31.07.23       | View PDF, AI Summarize | Get and display PDF file, Create method Summarize chat. |
 | 01.08.23       | Update readfile feature & uploadfile Notify | Update file reading feature to support docx and txt formats and add file upload notification for better user experience. Streamline the code for improved efficiency.|
 | 02.08.23       | Text to speech & Chat Memory | Allow users to listen to bot responses. Add chat memory feature. |
+| 08.08.23       | Upload audio file to firebase, Chunking down the documents for processing and code optimization. |
 ## USER INTERFACE
 
 https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/483447f7-a623-4b34-9c24-c71f8feac0f4
