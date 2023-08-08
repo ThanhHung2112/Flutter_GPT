@@ -58,8 +58,36 @@ OpenAI.instance.build(
         connectTimeout: const Duration(seconds: 100),
       ),
     )
-````
+```
 This trick is quite handy while building code, as it allows you to save time and resources and it still works until 31.07.23.
+
+## Setup flutterfire
+
+flow the link https://firebase.google.com/docs/flutter/setup?platform=ios
+
+```
+npm i -g firebase-tools
+```
+```
+firebase login
+```
+```
+dart pub global activate flutterfire_cli
+```
+You might encounter the  ```command not found: flutterfire``` error. In this case, you need to add the path that has been indicated when running the ```flutterfire_cli``` mismatch activation to your computer's environment.
+
+After this command a file call ```firebase_option.dart``` will be create in your folder
+```
+flutterfire configure
+```
+```
+flutter pub add firebase_core
+```
+Run this again to make sure everything installed in your computer
+```
+flutterfire configure
+```
+
 
 ## Acknowledgements
 
