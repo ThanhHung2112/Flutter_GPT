@@ -25,6 +25,8 @@ Feel free to explore the code and use it as a reference for your own projects an
 | 01.08.23       | Update readfile feature & uploadfile Notify | Update file reading feature to support docx and txt formats and add file upload notification for better user experience. Streamline the code for improved efficiency.|
 | 02.08.23       | Text to speech & Chat Memory | Allow users to listen to bot responses. Add chat memory feature. |
 | 08.08.23       | Audio file & chunking document |Upload audio file to firebase, Chunking down the documents for processing and code optimization.|
+| 10.08.23 | Chunking document | Optimal summarize document and fix minor bugs |
+
 ## USER INTERFACE
 
 https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/483447f7-a623-4b34-9c24-c71f8feac0f4
@@ -74,7 +76,7 @@ This trick is quite handy while building code, as it allows you to save time and
 
 ## Setup flutterfire
 
-flow the link https://firebase.google.com/docs/flutter/setup?platform=ios
+Flow the link https://firebase.google.com/docs/flutter/setup?platform=ios
 
 ```
 npm i -g firebase-tools
