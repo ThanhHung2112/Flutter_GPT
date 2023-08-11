@@ -44,7 +44,7 @@ instructions below:
 
 1. Clone  repository this to your computer
 ```bash
-git clone https://github.com/ThanhHung2112/Flutter_GPT.git
+git clone [https://github.com/ThanhHung2112/Flutter_GPT.git](https://github.com/ThanhHung2112/Flutter_GPT/tree/Stable-Version)
 ```
 2. Move to the Folder
 ```
