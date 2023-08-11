@@ -13,21 +13,27 @@ Feel free to explore the code and use it as a reference for your own projects!
 | Date                   | Task                | Notes                                               |
 |------------------------|---------------------|-----------------------------------------------------|
 |12.07.23                | Project setup       |                                                     |
-|13➖14.07.23      | Chatbot UI     | Theme, chatbot interface                             |
-|17➖19.07.23      | Send & Respond  | Send & respond message functionality               |
-|21➖23.07.23       | AIHandler        | Integrated chat_gpt_sdk for AI capabilities         |
-| 24.07.23       | HomePage UI        | Implemented isKeyValid check and set up Navigator   |
-| 25➖26.07.23       | Firebase Connection | Set up Firebase_CIL and implemented file upload to Firebase |
+|13➖14.07.23      | Chatbot UI     | Theme, chatbot interface.                            |
+|17➖19.07.23      | Send & Respond  | Send & respond message functionality.               |
+|21➖23.07.23       | AIHandler        | Integrated chat_gpt_sdk for AI capabilities        |
+| 24.07.23       | HomePage UI        | Implemented isKeyValid check and set up Navigator.   |
+| 25➖26.07.23       | Firebase Connection | Set up Firebase_CIL and implemented file upload to Firebase. |
 | 28.07.23       | Sidebar SM chatbot| Test the summarize feature & chatbot memory function, Sidebar UI, update the getApiKey method.|
-| 29.07.23       | Upload file from Sidebar | Upload file/PDF from Sidebar |
+| 29.07.23       | Upload file from Sidebar | Upload file/PDF from Sidebar. |
 | 30.07.23       | Summarize model | SummarizeModel and Summrizechat send & respond message functionality, also update the sidebar UI.|
-| 31.07.23       | View PDF, AI Summarize | Get and display PDF file, Create method Summarize chat |
+| 31.07.23       | View PDF, AI Summarize | Get and display PDF file, Create method Summarize chat. |
 | 01.08.23       | Update readfile feature & uploadfile Notify | Update file reading feature to support docx and txt formats and add file upload notification for better user experience. Streamline the code for improved efficiency.|
-| 02.08.23       | Text to speech | Allow users to listen to bot responses |
+| 02.08.23       | Text to speech & Chat Memory | Allow users to listen to bot responses. Add chat memory feature. |
+| 08.08.23       | Audio file & chunking document |Upload audio file to firebase, Chunking down the documents for processing and code optimization.|
 ## USER INTERFACE
 
 https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/483447f7-a623-4b34-9c24-c71f8feac0f4
 
+### Chat Memory
+<p align="center">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690989691.png" width="350" alt="Home Page 1">
+  <img src="https://github.com/ThanhHung2112/Flutter_GPT/blob/main/IMG/Screenshot_1690990527.png" width="350" alt="Home Page 2">
+</p>
 
 ## Installation
 
@@ -39,7 +45,7 @@ git clone https://github.com/ThanhHung2112/Flutter_GPT.git
 cd Flutter_GPT/flutter_gpt
 flutter pub get
 flutter run
-````
+```
 It may take a while for the first build of this app.
 
 ## Interesting discovery
@@ -53,8 +59,36 @@ OpenAI.instance.build(
         connectTimeout: const Duration(seconds: 100),
       ),
     )
-````
+```
 This trick is quite handy while building code, as it allows you to save time and resources and it still works until 31.07.23.
+
+## Setup flutterfire
+
+flow the link https://firebase.google.com/docs/flutter/setup?platform=ios
+
+```
+npm i -g firebase-tools
+```
+```
+firebase login
+```
+```
+dart pub global activate flutterfire_cli
+```
+You might encounter the error ```command not found: flutterfire``` . In this case, you need to add the path that has been indicated when running the ```flutterfire_cli``` mismatch activation to your computer's environment.
+
+After this command a file call ```firebase_option.dart``` will be create in your folder
+```
+flutterfire configure
+```
+```
+flutter pub add firebase_core
+```
+Run this again to make sure everything installed in your computer
+```
+flutterfire configure
+```
+
 
 ## Acknowledgements
 
