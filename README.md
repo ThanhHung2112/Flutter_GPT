@@ -6,7 +6,7 @@ This repository contains a Flutter mobile app that utilizes the OpenAI API to po
 
 Please note that the images displayed below are part of the app's interface and showcase the various functionalities available in the Flutter_GPT app.
 
-Feel free to explore the code and use it as a reference for your own projects!
+Feel free to explore the code and use it as a reference for your own projects and don't forget to star this 😁
 
 ## Time Tracking
 
