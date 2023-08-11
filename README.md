@@ -42,7 +42,7 @@ https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/483447f7-a623-4b34-
 You can download the APK file from the releases section of this repository or build the app from source using the
 instructions below:
 
-1. Clone this to your computer
+1. Clone  repository this to your computer
 ```bash
 git clone https://github.com/ThanhHung2112/Flutter_GPT.git
 ```
@@ -50,7 +50,7 @@ git clone https://github.com/ThanhHung2112/Flutter_GPT.git
 ```
 cd Flutter_GPT/flutter_gpt
 ```
-3 Install denpendencie
+3. Install denpendencie
 ```
 flutter pub get
 ```
