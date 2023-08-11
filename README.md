@@ -40,13 +40,23 @@ https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/483447f7-a623-4b34-
 You can download the APK file from the releases section of this repository or build the app from source using the
 instructions below:
 
+1. Clone this to your computer
 ```bash
 git clone https://github.com/ThanhHung2112/Flutter_GPT.git
+```
+2. Move to the Folder
+```
 cd Flutter_GPT/flutter_gpt
+```
+3 Install denpendencie
+```
 flutter pub get
+```
+4. Choose your device and run the app
+```
 flutter run
 ```
-It may take a while for the first build of this app.
+It may take a while for the first time you build this app.
 
 ## Interesting discovery
 
