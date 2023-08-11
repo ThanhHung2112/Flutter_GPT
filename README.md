@@ -85,12 +85,12 @@ firebase login
 ```
 dart pub global activate flutterfire_cli
 ```
-You might encounter the error ```command not found: flutterfire``` . In this case, you need to add the path that has been indicated when running the ```flutterfire_cli``` mismatch activation to your computer's environment. You can flow [Fix command not found](#section1) to solve this issue
-
-After this command a file call ```firebase_option.dart``` will be create in your folder
 ```
 flutterfire configure
 ```
+You might encounter the error ```command not found: flutterfire``` . In this case, you need to add the path that has been indicated when running the ```flutterfire_cli``` mismatch activation to your computer's environment. You can flow [Fix command not found](#section1) to solve this issue
+
+After this command a file call ```firebase_option.dart``` will be create in your folder
 ```
 flutter pub add firebase_core
 ```
