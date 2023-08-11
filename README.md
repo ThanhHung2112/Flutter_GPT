@@ -99,7 +99,15 @@ Run this again to make sure everything installed in your computer
 flutterfire configure
 ```
 
+## Fix command not found: flutterfire
 
+1. In your terminal and run this code to open **Advanced system settings**
+```
+SystemPropertiesAdvanced
+```
+2. Click Environment Variables. In the section System Variables find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
+4. In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable ( The path might look like this *<<C:\Users\YourUsername\AppData\Local\Pub\Cache\bin>>*). Click OK. Close all remaining windows by clicking OK.
+5. You might have to restart your computer to active path
 ## Acknowledgements
 
 This app was built using the following open-source libraries and tools:
