@@ -102,11 +102,11 @@ class _MyDrawerState extends ConsumerState<MyDrawer> {
   // Accept the BuildContext as a parameter
   final String pdfFileName = 'some-file.pdf';
   Uint8List? fileData;
-
+  
   @override
   Widget build(BuildContext context) {
-    final uploadAndViewFile =
-        UploadAndViewFile(); // Create an instance of UploadAndViewFile
+    final uploadAndViewFile = UploadAndViewFile();
+
 
     return Drawer(
       child: Column(
@@ -186,8 +186,17 @@ class _MyDrawerState extends ConsumerState<MyDrawer> {
                     style: TextStyle(fontSize: 17),
                   ),
                   onTap: () async {
-                    await uploadAndViewFile.selectFile();
+                    showProgressDialog(context, "Uploading...");
+                    await uploadAndViewFile.selectFile(context);
+                    Navigator.pop(context);
                     await uploadAndViewFile.readFile(context);
+                    // showProgressDialog(context, "Processing...");
+
+                    // await uploadAndViewFile.readFile(context);
+
+                    // Navigator.maybePop(context);
+                    
+
                     addToChatList(
                         Global.status, false, DateTime.now().toString());
                   },
@@ -202,9 +211,8 @@ class _MyDrawerState extends ConsumerState<MyDrawer> {
                       'View File',
                       style: TextStyle(fontSize: 17),
                     ),
-                    onTap: () => uploadAndViewFile.readFile(
-                        context) // Call the _readFile() function from UploadAndViewFile
-                    ),
+                    onTap: () => convertAudioToText()),
+                    // uploadAndViewFile.viewFile(context)),
                 ListTile(
                   leading: SvgPicture.asset(
                     'assets/icons/back.svg',
@@ -251,4 +259,5 @@ class _MyDrawerState extends ConsumerState<MyDrawer> {
     ));
   }
 
+  
 }

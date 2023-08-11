@@ -1,6 +1,4 @@
-import 'dart:io';
 import 'dart:ui';
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:gpt_flutter/widgets/my_app_bar.dart';
 import 'package:gpt_flutter/screens/chat_screen.dart';
@@ -8,10 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gpt_flutter/models/summarize_model.dart';
 import 'package:gpt_flutter/providers/chats_provider.dart';
 import 'package:gpt_flutter/providers/global_provider.dart';
-import 'package:gpt_flutter/widgets/text_and_voice_field.dart';
 import 'package:gpt_flutter/services/upload_file_firebase.dart';
-import 'package:flutter_document_picker/flutter_document_picker.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+
 
 class SummarizeDoc extends ConsumerStatefulWidget {
   @override
@@ -43,8 +39,13 @@ class _SummarizeDocState extends ConsumerState<SummarizeDoc> {
   ElevatedButton _uploadToCon(BuildContext context) {
     return ElevatedButton(
       onPressed: () async {
-        await uploadAndViewFile.selectFile();
-        await uploadAndViewFile.readFile(context);
+
+        showProgressDialog(context, "Uploading...");
+        await uploadAndViewFile.selectFile(context);
+       
+        Navigator.pop(context);
+        
+        // await uploadAndViewFile.readFile(context);
         setState(() {
           _fileUploaded = Global.fileUploaded;
         });
