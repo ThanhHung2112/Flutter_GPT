@@ -43,8 +43,12 @@ You can download the APK file from the releases section of this repository or bu
 instructions below:
 
 1. Clone  repository this to your computer
+   Clone this if you want to use my firebase
 ```bash
 git clone https://github.com/ThanhHung2112/Flutter_GPT/tree/Stable-Version
+```
+    Clone this if you want to custom this project
+```
 ```
 2. Move to the Folder
 ```
@@ -54,7 +58,7 @@ cd Flutter_GPT/flutter_gpt
 ```
 flutter pub get
 ```
-4. Choose your device and run the app
+4. Choose your device and run the app, feel free to use my firebase as a storage but if you want to use this with your own firebase 👉 flow the [Setup flutterfire](#section2)
 ```
 flutter run
 ```
@@ -75,7 +79,7 @@ OpenAI.instance.build(
 This trick is quite handy while building code, as it allows you to save time and resources and it still works until 31.07.23.
 
 ## Setup flutterfire
-
+<a name="section2"></a>
 Flow the link https://firebase.google.com/docs/flutter/setup?platform=ios
 
 ```
