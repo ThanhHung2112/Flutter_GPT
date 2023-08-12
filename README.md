@@ -27,6 +27,13 @@ Feel free to explore the code and use it as a reference for your own projects an
 | 08.08.23       | Audio file & chunking document |Upload audio file to firebase, Chunking down the documents for processing and code optimization.|
 | 10.08.23 | Chunking document | Optimal summarize document and fix minor bugs |
 
+## Features
+
+- A mobile app with a beautiful interface, user-friendly.
+- Chatbot: Enjoy dynamic conversations with AI bot, enable voice and message chat.
+- Summarize: Upload and Ask anything about the documentation
+- Support for pdf and docx file.
+
 ## USER INTERFACE
 
 https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/483447f7-a623-4b34-9c24-c71f8feac0f4
