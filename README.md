@@ -43,11 +43,11 @@ You can download the APK file from the releases section of this repository or bu
 instructions below:
 
 1. Clone  repository this to your computer
-   Clone this if you want to use my firebase
+  Clone this if you want to use my firebase
 ```bash
 git clone https://github.com/ThanhHung2112/Flutter_GPT/tree/Stable-Version
 ```
-    Clone this if you want to custom this project
+  Clone this if you want to custom this project
 ```
 ```
 2. Move to the Folder
