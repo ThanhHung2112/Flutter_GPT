@@ -87,6 +87,18 @@ Flow the link https://firebase.google.com/docs/flutter/setup?platform=ios
 ### 1. Setup your firebase
 https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/80c8ef03-a75d-4253-b39d-899951cf3734
 
+### Storage
+ Choose test mode in Storage and paste this code at rules partten
+```
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write;
+    }
+  }
+}
+```
 ### 2. Setup firebase in your computer
 ```
 npm i -g firebase-tools
