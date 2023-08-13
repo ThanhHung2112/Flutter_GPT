@@ -43,12 +43,14 @@ You can download the APK file from the releases section of this repository or bu
 instructions below:
 
 1. Clone  repository this to your computer
+   
   Clone this if you want to use my firebase
-```bash
+```
 git clone https://github.com/ThanhHung2112/Flutter_GPT/tree/Stable-Version
 ```
   Clone this if you want to custom this project
 ```
+git clone https://github.com/ThanhHung2112/Flutter_GPT/tree/Custom-Version
 ```
 2. Move to the Folder
 ```
@@ -82,6 +84,10 @@ This trick is quite handy while building code, as it allows you to save time and
 <a name="section2"></a>
 Flow the link https://firebase.google.com/docs/flutter/setup?platform=ios
 
+### 1. Setup your firebase
+https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/80c8ef03-a75d-4253-b39d-899951cf3734
+
+### 2. Setup firebase in your computer
 ```
 npm i -g firebase-tools
 ```
