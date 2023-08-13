@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "700238368033",
+    "project_id": "flutter-gpt-1a88c",
+    "storage_bucket": "flutter-gpt-1a88c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700238368033:android:839f16f306b7c1aef5c260",
+        "android_client_info": {
+          "package_name": "com.example.gpt_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700238368033-ddne1u7s6h32l80mdib8psms57ort19s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1EjTaNvOC32t35aWvtYr6pUldv78b0CY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700238368033-ddne1u7s6h32l80mdib8psms57ort19s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "700238368033-07u5h6ik43q4vvbv8v84lt78ggbnmq4d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gptFlutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

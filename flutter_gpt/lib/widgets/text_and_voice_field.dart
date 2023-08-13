@@ -4,10 +4,11 @@ import '../services/ai_handler.dart';
 import 'package:flutter/material.dart';
 import '../services/voice_handler.dart';
 import '../providers/chats_provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gpt_flutter/models/summarize_model.dart';
 import 'package:gpt_flutter/providers/global_provider.dart';
-
 enum InputMode {
   text,
   voice,
@@ -26,6 +27,7 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
   var _isReplying = false;
   var _isListening = false;
   String openaiKey = Global.openaiKeys;
+  // final bool isChatbot = ;
   @override
   void initState() {
     voiceHandler.initSpeech();
@@ -35,6 +37,7 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
   @override
   void dispose() {
     _messageController.dispose();
+    // _openAI.dispose();
     super.dispose();
   }
 
@@ -109,6 +112,7 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
   void sendTextMessage(String message) async {
     setReplyingState(true);
     addToChatList(message, true, DateTime.now().toString());
+    
     addToChatList('Typing...', false, 'typing');
     setInputMode(InputMode.voice);
     addToChatList(Global.fileContent, true, DateTime.now().toString());
@@ -126,6 +130,7 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
     }
     removeTyping();
     addToChatList(aiResponse, false, DateTime.now().toString());
+
     setReplyingState(false);
   }
 
@@ -153,6 +158,7 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
   }
 
   void addToChatList(String message, bool isMe, String id) {
+    sendMessageToFirebase(message, isMe); 
     if (Global.chatType) {
       final chats = ref.read(chatsProvider.notifier);
       chats.add(ChatModel(
@@ -168,5 +174,19 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
         isMe: isMe,
       ));
     }
+  }
+  void sendMessageToFirebase(String message, bool isMe) {
+    final CollectionReference chatCollection = FirebaseFirestore.instance.collection('chats');
+
+    // Tạo một document mới trong collection "chats" với ID là timestamp
+    String timestamp = DateTime.now().toIso8601String();
+    chatCollection.doc(timestamp).set({
+      'message': message,
+      'isMe': isMe,
+    }).then((value) {
+      print("Message sent to Firebase");
+    }).catchError((error) {
+      print("Error sending message: $error");
+    });
   }
 }
