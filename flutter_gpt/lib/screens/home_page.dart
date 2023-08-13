@@ -164,7 +164,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _onChatbotPressed(BuildContext context) async {
-    // String _openaikey = "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";//_textEditingController.text;
     _openaikey =  _textEditingController.text;
 
     bool isValidKey = await isKeyValid(_openaikey);
@@ -191,10 +190,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _onSummarizePressed() async {
-    _openaikey = "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";
-    // "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"; //_textEditingController.text;
-
-    //String _openaikey = "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";
+    _openaikey = _textEditingController.text;
     bool isValidKey = await isKeyValid(_openaikey);
 
     if (_openaikey.isEmpty) {
