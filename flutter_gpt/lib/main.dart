@@ -28,23 +28,6 @@ class App extends ConsumerWidget {
         themeMode:
             activeTheme == Themes.dark ? ThemeMode.dark : ThemeMode.light,
         home: HomePage());
-    // FutureBuilder(builder: ((context, snapshot) {
-    //   if (snapshot.hasError) {
-    //     print("snapshot error: " ); //+ snapshot.toString()
-    //   }
-    //   if (snapshot.connectionState == ConnectionState.done) {
-    //     return MaterialApp(
-    //       theme: lightTheme,
-    //       darkTheme: darkTheme,
-    //       debugShowCheckedModeBanner: false,
-    //       themeMode:
-    //           activeTheme == Themes.dark ? ThemeMode.dark : ThemeMode.light,
-    //       home: HomePage(),
 
-    //     );
-    //   }
-    //   return Center(child: CircularProgressIndicator());
-    // }));
-    //
   }
 }

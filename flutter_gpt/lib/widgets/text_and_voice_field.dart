@@ -26,7 +26,6 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
   var _isReplying = false;
   var _isListening = false;
   String openaiKey = Global.openaiKeys;
-  // final bool isChatbot = ;
   @override
   void initState() {
     voiceHandler.initSpeech();
@@ -36,7 +35,6 @@ class _TextAndVoiceFieldState extends ConsumerState<TextAndVoiceField> {
   @override
   void dispose() {
     _messageController.dispose();
-    // _openAI.dispose();
     super.dispose();
   }
 
