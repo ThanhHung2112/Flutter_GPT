@@ -124,7 +124,7 @@ flutterfire configure
 SystemPropertiesAdvanced
 ```
 2. Click Environment Variables. In the section System Variables find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
-4. In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable ( The path might look like this *<<C:\Users\YourUsername\AppData\Local\Pub\Cache\bin>>*). Click OK. Close all remaining windows by clicking OK.
+4. In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable ( The path might look like this *"C:\Users\YourUsername\AppData\Local\Pub\Cache\bin"*). Click OK. Close all remaining windows by clicking OK.
 5. You might have to restart your computer to active path
 ## Acknowledgements
 
