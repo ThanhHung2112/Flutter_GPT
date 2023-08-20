@@ -8,25 +8,6 @@ Please note that the displayed below are part of the app's interface and showcas
 
 Feel free to explore the code and use it as a reference for your own projects and don't forget to star this 😁
 
-## Time Tracking
-
-| Date                   | Task                | Notes                                               |
-|------------------------|---------------------|-----------------------------------------------------|
-|12.07.23                | Project setup       |                                                     |
-|13➖14.07.23      | Chatbot UI     | Theme, chatbot interface.                            |
-|17➖19.07.23      | Send & Respond  | Send & respond message functionality.               |
-|21➖23.07.23       | AIHandler        | Integrated chat_gpt_sdk for AI capabilities        |
-| 24.07.23       | HomePage UI        | Implemented isKeyValid check and set up Navigator.   |
-| 25➖26.07.23       | Firebase Connection | Set up Firebase_CIL and implemented file upload to Firebase. |
-| 28.07.23       | Sidebar SM chatbot| Test the summarize feature & chatbot memory function, Sidebar UI, update the getApiKey method.|
-| 29.07.23       | Upload file from Sidebar | Upload file/PDF from Sidebar. |
-| 30.07.23       | Summarize model | SummarizeModel and Summrizechat send & respond message functionality, also update the sidebar UI.|
-| 31.07.23       | View PDF, AI Summarize | Get and display PDF file, Create method Summarize chat. |
-| 01.08.23       | Update readfile feature & uploadfile Notify | Update file reading feature to support docx and txt formats and add file upload notification for better user experience. Streamline the code for improved efficiency.|
-| 02.08.23       | Text to speech & Chat Memory | Allow users to listen to bot responses. Add chat memory feature. |
-| 08.08.23       | Audio file & chunking document |Upload audio file to firebase, Chunking down the documents for processing and code optimization.|
-| 10.08.23 | Chunking document | Optimal summarize document and fix minor bugs |
-
 ## USER INTERFACE
 
 https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/483447f7-a623-4b34-9c24-c71f8feac0f4
@@ -135,5 +116,22 @@ This app was built using the following open-source libraries and tools:
 * [OpenAI GPT](https://beta.openai.com/)
 * [Firebase](https://firebase.google.com/docs/flutter/setup)
 
+## Time Tracking
 
+| Date                   | Task                | Notes                                               |
+|------------------------|---------------------|-----------------------------------------------------|
+|12.07.23                | Project setup       |                                                     |
+|13➖14.07.23      | Chatbot UI     | Theme, chatbot interface.                            |
+|17➖19.07.23      | Send & Respond  | Send & respond message functionality.               |
+|21➖23.07.23       | AIHandler        | Integrated chat_gpt_sdk for AI capabilities        |
+| 24.07.23       | HomePage UI        | Implemented isKeyValid check and set up Navigator.   |
+| 25➖26.07.23       | Firebase Connection | Set up Firebase_CIL and implemented file upload to Firebase. |
+| 28.07.23       | Sidebar SM chatbot| Test the summarize feature & chatbot memory function, Sidebar UI, update the getApiKey method.|
+| 29.07.23       | Upload file from Sidebar | Upload file/PDF from Sidebar. |
+| 30.07.23       | Summarize model | SummarizeModel and Summrizechat send & respond message functionality, also update the sidebar UI.|
+| 31.07.23       | View PDF, AI Summarize | Get and display PDF file, Create method Summarize chat. |
+| 01.08.23       | Update readfile feature & uploadfile Notify | Update file reading feature to support docx and txt formats and add file upload notification for better user experience. Streamline the code for improved efficiency.|
+| 02.08.23       | Text to speech & Chat Memory | Allow users to listen to bot responses. Add chat memory feature. |
+| 08.08.23       | Audio file & chunking document |Upload audio file to firebase, Chunking down the documents for processing and code optimization.|
+| 10.08.23 | Chunking document | Optimal summarize document and fix minor bugs |
 
