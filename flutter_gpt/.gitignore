@@ -33,14 +33,9 @@ migrate_working_dir/
 /build/
 
 # from here
-# lib/widgets/my_app_bar.dart
-# lib/services/
-# # UI dart
-# /lib/models/firebase_file.dart
-# /lib/screens/download_file.dart
-# /lib/services/is_validation.dart
-# lib/services/ai_handler.dart
-# /lib/widgets/text_and_voice_field.dart
+
+flutter_gpt/lib/firebase_options.dart
+flutter_gpt/android/app/google-services.json
 
 
 # Symbolication related
