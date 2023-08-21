@@ -12,13 +12,14 @@ class ChatNotifier extends StateNotifier<List<ChatModel>> {
   void removeTyping() {
     state = state..removeWhere((chat) => chat.id == 'typing');
   }
+  void clearChatHistory() {
+    state = []; // Xoá toàn bộ dữ liệu
+  }
 }
 
 final chatsProvider = StateNotifierProvider<ChatNotifier, List<ChatModel>>(
   (ref) => ChatNotifier(),
 );
-
-
 
 class SummarizeNotifier extends StateNotifier<List<SummarizeModel>> {
   SummarizeNotifier() : super([]);
@@ -26,9 +27,11 @@ class SummarizeNotifier extends StateNotifier<List<SummarizeModel>> {
   void add(SummarizeModel summarizeModel) {
     state = [...state, summarizeModel];
   }
-
   void removeTyping() {
     state = state..removeWhere((chat) => chat.id == 'typing');
+  }
+  void clearSummarizeHistory() {
+    state = []; // Xoá toàn bộ dữ liệu
   }
 }
 

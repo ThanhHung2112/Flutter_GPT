@@ -3,18 +3,17 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
+import 'package:http_parser/http_parser.dart';
 import 'package:docx_to_text/docx_to_text.dart';
 import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
-import "package:whisper_dart/whisper_dart.dart";
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:gpt_flutter/providers/global_provider.dart';
 import 'package:gpt_flutter/services/view_file_firebase.dart';
 import 'package:flutter_document_picker/flutter_document_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
-// import "package:whisper_flutter/whisper_flutter.dart";
-
 
 class UploadAndViewFile {
   Future<void> selectFile(BuildContext context) async {
@@ -70,20 +69,18 @@ class UploadAndViewFile {
     //, File fileD
     showProgressDialog(parentContext, "Processing...");
 
-    // try {
-    // Create a reference to the file
     firebase_storage.Reference ref = firebase_storage.FirebaseStorage.instance
         .ref()
         .child('files')
         .child(Global.currentFileName);
 
-    Uint8List? fileData = await ref.getData(); //fileD.readAsBytesSync();
+    Uint8List? fileData = await ref.getData();
 
     String fileExtension = Global.currentFileName
         .substring(Global.currentFileName.lastIndexOf('.'))
         .toLowerCase();
     var _text;
-
+    List<String> validExtensions = ['.mp3', '.wav', '.mpga', '.mpeg'];
     if (fileExtension == '.pdf') {
       final pdfDocument = PdfDocument(inputBytes: fileData);
       PdfTextExtractor extractor = PdfTextExtractor(pdfDocument);
@@ -91,28 +88,18 @@ class UploadAndViewFile {
       print("pdf done");
     } else if (fileExtension == '.docx') {
       _text = await docxToText(fileData!);
-    } else if (fileExtension == '.mp3' || fileExtension == '.wav') {
+    } else if (validExtensions.contains(fileExtension)) {
       // process audio files
+      Navigator.pop(parentContext);
+      showProgressDialog(parentContext, "Audio processing");
       print("audio processing");
-
       try {
-        final Directory tempDir = Directory.systemTemp;
-        final File tempFile = File('${tempDir.path}/audio_file$fileExtension');
-
-        await ref.writeToFile(tempFile);
-
         // Convert audio to text using whipper
-        // String audioText = await convertAudioToText(tempFile);
-
-        // print(audioText);
-        // _text = audioText;
+        String audioText = await convertAudioToText(fileData!);
+        _text = audioText;
       } catch (e) {
         print("Error downloading or converting audio file: $e");
       }
-      // _text = await convertAudioToText(fileData!)
-      final audio = await _getAudioContent(Global.currentFileName);
-
-      return;
     } else {
       _text = utf8.decode(base64.decode(String.fromCharCodes(fileData!)));
     }
@@ -134,14 +121,10 @@ class UploadAndViewFile {
         builder: (context) => FileDataScreen(fileData: fileData!),
       ),
     );
-    // } catch (e) {
-    //   print("Lỗi khi đọc file: $e");
-    // }
   }
 
   Future<void> viewFile(BuildContext parentContext) async {
     showProgressDialog(parentContext, "Processing...");
-
     // try {
     // Create a reference to the file
     firebase_storage.Reference ref = firebase_storage.FirebaseStorage.instance
@@ -150,12 +133,52 @@ class UploadAndViewFile {
         .child(Global.currentFileName);
 
     Uint8List? fileData = await ref.getData();
+    String fileExtension = Global.currentFileName
+        .substring(Global.currentFileName.lastIndexOf('.'))
+        .toLowerCase();
+    var _text;
+    List<String> validExtensions = ['.mp3', '.wav', '.mpga', '.mpeg'];
+    if (validExtensions.contains(fileExtension)) {
+      // process audio files
+      Navigator.pop(parentContext);
+      showProgressDialog(parentContext, "Audio processing");
+      print("audio processing");
+      try {
+        String audioText = await convertAudioToText(fileData!);
+        _text = audioText;
+        Global.fileContent = _text;
+      } catch (e) {
+        print("Error downloading or converting audio file: $e");
+      }
+    }
     Navigator.push(
       parentContext,
       MaterialPageRoute(
         builder: (context) => FileDataScreen(fileData: fileData!),
       ),
     );
+  }
+
+  Future<String> convertAudioToText(Uint8List audioData) async {
+    String key = Global.openaiKeys;
+    final url = Uri.https("api.openai.com", "v1/audio/transcriptions");
+    final request = http.MultipartRequest('POST', url);
+    request.headers.addAll(({"Authorization": "Bearer $key"}));
+    request.fields["model"] = 'whisper-1';
+    request.files.add(
+      http.MultipartFile.fromBytes(
+        'file',
+        audioData,
+        filename: Global.currentFileName, // Tên tệp giả định
+        contentType: MediaType('audio', 'mpeg'), // Loại nội dung âm thanh
+      ),
+    );
+
+    final response = await request.send();
+    final newresponse = await http.Response.fromStream(response);
+    final responseData = json.decode(newresponse.body);
+    print(responseData['text']);
+    return responseData['text'];
   }
 }
 
@@ -263,70 +286,3 @@ Future<String> _mergeDoc(String doc) async {
   //   return "failed";
   // }
 }
-Future<List<int>> _getAudioContent(String name) async {
-  final directory = await getApplicationDocumentsDirectory();
-  final path = directory.path + '/$name';
-  return File(path).readAsBytesSync().toList();
-}
-
-Future<String> convertAudioToText() async {
-  try {
-    Whisper whisper = Whisper();
-    var res = whisper.request(
-      whisperRequest: WhisperRequest.fromWavFile(
-        audio: File("assets/service/(31.12.2015). Booking a tour at the travel agent_audio_1.wav"),
-        model: File("assets/service/for-tests-ggml-large.bin"),
-      ),
-    );
-    Global.fileContent = res.toString();
-    print(res);
-    return res.toString();
-  } catch (e) {
-    print("Lỗi khi chuyển đổi audio thành text: $e");
-    return '';
-  }
-}
-
-// Future<String> convertAudioToText(Uint8List audioData) async {
-//   final serviceAccount = ServiceAccount.fromString(
-//       '${(await rootBundle.loadString('assets/service/sync-request.json'))}');
-//   final speechToText = SpeechToText.viaServiceAccount(serviceAccount);
-//   final config = RecognitionConfig(
-//     encoding: AudioEncoding.LINEAR16,
-//     model: RecognitionModel.basic,
-//     enableAutomaticPunctuation: true,
-//     sampleRateHertz: 16000,
-//     languageCode: 'en-US',
-//   );
-
-//   final transcript = await speechToText.recognize(config, audioData);
-//   String text = transcript.results
-//       .map((e) => e.alternatives.first.transcript)
-//       .join('\n');
-//   return text;
-// }
-  // Future<String> _convertAudioToText(File audioFile) async {
-  //   try {
-  //     // File model = ;
-  //     Whisper whisper = Whisper();
-  //     var res = await whisper.request(
-  //       whisperLib:
-  //           "libwhisper.so",
-  //       whisperRequest: WhisperRequest.fromWavFile(
-  //         audio: audioFile,
-  //         model: File("assets/service/for-tests-ggml-large.bin"),
-  //       ),
-  //     );
-  //     // Whisper whisper = Whisper();
-  //     // Transcribe transcribe = await whisper.transcribe(
-  //     //   audio: audioFile,
-  //     //   model: "assets/service/for-tests-ggml-large.bin",
-  //     //   language: "id", // language
-  //     // );
-  //     // print(transcribe);
-  //     return res.toString();
-  //   } catch (e) {
-  //     print("Error converting audio to text: $e");
-  //     return "";
-  //   }
-  // }

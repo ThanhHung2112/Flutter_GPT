@@ -5,6 +5,7 @@ import 'package:gpt_flutter/screens/chat_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gpt_flutter/models/summarize_model.dart';
 import 'package:gpt_flutter/providers/chats_provider.dart';
+import 'package:gpt_flutter/services/firebase_process.dart';
 import 'package:gpt_flutter/providers/global_provider.dart';
 import 'package:gpt_flutter/services/upload_file_firebase.dart';
 
@@ -26,6 +27,7 @@ class _SummarizeDocState extends ConsumerState<SummarizeDoc> {
       appBar:
           MyAppBar(title: "Flutter - Summarize Document", isSidebarOpen: false),
       drawer: MyDrawer(parentContext: context),
+      endDrawer: EDrawer(parentContext: context),
       body: Center(
           child: _fileUploaded
               ? ChatScreen(
@@ -45,7 +47,7 @@ class _SummarizeDocState extends ConsumerState<SummarizeDoc> {
        
         Navigator.pop(context);
         
-        // await uploadAndViewFile.readFile(context);
+        await uploadAndViewFile.readFile(context);
         setState(() {
           _fileUploaded = Global.fileUploaded;
         });
@@ -113,4 +115,5 @@ class _SummarizeDocState extends ConsumerState<SummarizeDoc> {
       isMe: isMe,
     ));
   }
+  
 }

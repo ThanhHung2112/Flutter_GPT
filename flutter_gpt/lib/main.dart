@@ -28,6 +28,5 @@ class App extends ConsumerWidget {
         themeMode:
             activeTheme == Themes.dark ? ThemeMode.dark : ThemeMode.light,
         home: HomePage());
-
   }
 }
