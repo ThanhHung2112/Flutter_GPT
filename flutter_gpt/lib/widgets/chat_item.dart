@@ -75,8 +75,8 @@ class ChatItem extends StatelessWidget {
 
   Future<void> _speakText(BuildContext context) async {
     final FlutterTts flutterTts = FlutterTts();
-
-    await flutterTts.setLanguage("en-US"); // Set the language (you can change to other languages if needed)
+    
+    await flutterTts.setLanguage("en-US");
     // await flutterTts.setLanguage("vi-VN");
     await flutterTts.speak(text); // Speak the text in the boxchat
   }
