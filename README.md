@@ -10,7 +10,7 @@ Feel free to explore the code and use it as a reference for your own projects an
 
 ## Feature
 
-- Conversations with AI: Utilizing the **LLM GPT-3.5** model with swift responsiveness and naturalness for conversational interactions.
+- Chatbot: Utilizing the **LLM GPT-3.5** model with swift responsiveness and naturalness for conversational interactions.
 - Summarize Tool: Addressing all questions related to your documents, aiding in swift retrieval and information extraction from various sources.
 - Enable **Memory feature** and **Multi-Conversation** for both functionality.
 - Support for ```.pdf```,```.txt```, ```.docx``` and audio file such as ```.mp3```, ```.wav```, ```.mpga```, ```.mpeg```.
@@ -27,7 +27,7 @@ https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/994f9db1-920e-4dfe-
 
 ## Installation
 
-You can download the APK file from the releases section of this repository or build the app from source using the
+You can download the [APK file](https://github.com/ThanhHung2112/Flutter_GPT/blob/main/assets/app-release.apk) from the releases section of this repository or build the app from source using the
 instructions below:
 
 1. Clone this repository to your computer
