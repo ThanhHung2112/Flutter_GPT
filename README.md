@@ -8,14 +8,14 @@ Please note that the displayed below are part of the app's interface and showcas
 
 Feel free to explore the code and use it as a reference for your own projects and don't forget to star this 😁
 
-## FEATURE
+## Feature
 
 - Conversations with AI: Utilizing the **LLM GPT-3.5** model with swift responsiveness and naturalness for conversational interactions.
 - Summarize Tool: Addressing all questions related to your documents, aiding in swift retrieval and information extraction from various sources.
 - Enable **Memory feature** and **Multi-Conversation** for both functionality.
 - Support for ```.pdf```,```.txt```, ```.docx``` and audio file such as ```.mp3```, ```.wav```, ```.mpga```, ```.mpeg```.
 
-## USER INTERFACE
+## User Interface
 
 https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/8b716e1a-3024-41ba-b929-5d8e8f707a62
 
