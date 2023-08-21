@@ -17,7 +17,7 @@ Feel free to explore the code and use it as a reference for your own projects an
 
 ## User Interface
 
-https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/8b716e1a-3024-41ba-b929-5d8e8f707a62
+https://github.com/ThanhHung2112/Flutter_GPT/assets/73764342/994f9db1-920e-4dfe-8b79-84a17966f238
 
 ### Chat Memory
 <p align="center">
