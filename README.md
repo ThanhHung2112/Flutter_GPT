@@ -8,9 +8,7 @@ Please note that the displayed below are part of the app's interface and showcas
 
 Feel free to explore the code and use it as a reference for your own projects or [download the APK](https://github.com/ThanhHung2112/Flutter_GPT/raw/main/assets/app-release.apk) to experience and don't forget to star this 😁
 
-
-
-## Feature
+## Features
 
 - Chatbot: Utilizing the **LLM GPT-3.5** model with swift responsiveness and naturalness for conversational interactions.
 - Summarize Tool: Addressing all questions related to your documents, aiding in swift retrieval and information extraction from various sources.
