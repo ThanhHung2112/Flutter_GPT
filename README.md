@@ -13,7 +13,7 @@ Feel free to explore the code and use it as a reference for your own projects or
 - Chatbot: Utilizing the **LLM GPT-3.5** model with swift responsiveness and naturalness for conversational interactions.
 - Summarize Tool: Addressing all questions related to your documents, aiding in swift retrieval and information extraction from various sources.
 - Enable **Memory feature** and **Multi-Conversation** for both functionality.
-- Support for ```.pdf```,```.txt```, ```.docx``` and audio file such as ```.mp3```, ```.wav```, ```.mpga```, ```.mpeg```.
+- Support for `.pdf`,`.txt`, `.docx` and audio file such as `.mp3`, `.wav`, `.mpga`, `.mpeg`.
 
 ## User Interface
 
@@ -51,7 +51,7 @@ It may take a while for the first time you build this app.
 ## Interesting discovery
 
 If you set the API key within the code like this, you can continue to use it even if the key has expired.
-```bash
+```dart
 OpenAI.instance.build(
       token: "<<your-api-keys>>",
       baseOption: HttpSetup(
