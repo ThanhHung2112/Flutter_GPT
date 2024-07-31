@@ -1,6 +1,6 @@
 # Flutter_GPT
 
-This is a mobile application built with Flutter, integrating OpenAI's API. The app was developed during my internship at BRYCEN company, featuring two main functionalities: a chatbot and a document summarization tool.
+This is a mobile application built with Flutter, integrating OpenAI's API. The app was developed during my internship at [**BRYCEN company**](https://brycen.com.vn/vi/), featuring two main functionalities: a chatbot and a document summarization tool.
 
 This repository contains a Flutter mobile app that utilizes the OpenAI API to power a chatbot functionality. The app interface is designed with multiple screens, including the Home Page, OpenAI key input, Chatbot Screen, and Summarize Screens.
 
